@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter";
+  color: var(--black);
+  background: linear-gradient(180deg, #0a2a34 0%, rgba(80, 138, 156, 0.2) 100%)
+    no-repeat;
+  height: 100vh;
+}
