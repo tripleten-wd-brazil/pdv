@@ -7,6 +7,7 @@ We're going to use HTML, CSS and vanilla JS to build a point of sale (POS, in po
 The design used is well described in this [figma file.](https://www.figma.com/file/00zods6GB5lP4o48HwdoP9/PDV?node-id=0:1&t=7OJye74EtojzoyYg-0)
 
 Thanks Thiago Castro for your hard working making this designs available for free. You can check more of his work [right here.](https://thiagocastroux.com/)
+teste
 
 ## System features
 
