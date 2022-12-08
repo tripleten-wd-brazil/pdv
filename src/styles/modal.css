@@ -1,0 +1,18 @@
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlayColor);
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0px 6px 6px var(--boxShadow);
+}

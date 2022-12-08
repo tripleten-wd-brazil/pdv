@@ -6,4 +6,6 @@
   --secondary: #898989;
   --success: #10a51f;
   --danger: #de1f1f;
+  --overlayColor: #acacac80;
+  --boxShadow: rgba(0, 0, 0, 0.35);
 }
