@@ -1,0 +1,22 @@
+.button {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: none;
+}
+
+.button_type_success {
+  background-color: var(--success);
+}
+
+.button_type_cancel {
+  background-color: var(--secondary);
+}
+
+.button_type_edit {
+  background-color: var(--edit);
+}

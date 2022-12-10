@@ -2,10 +2,11 @@
   --lightgray: #ababab;
   --black: #1e1e1e;
   --white: #ffffff;
-  --primary: #de591f;
+  --primary: #1c9ec7;
   --secondary: #898989;
   --success: #10a51f;
   --danger: #de1f1f;
+  --edit: #e2cf23;
   --overlayColor: #acacac80;
   --boxShadow: rgba(0, 0, 0, 0.35);
 }
