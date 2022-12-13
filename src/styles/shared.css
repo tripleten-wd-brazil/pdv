@@ -10,5 +10,6 @@
   border-radius: 8px;
   padding: 8px 16px;
   border: none;
-  background-color: var(--primary);
+  background-color: var(--cyan);
+  font-size: 16px;
 }
