@@ -1,0 +1,38 @@
+.button {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: none;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.button_type_success {
+  background-color: var(--success);
+}
+
+.button_type_success:hover {
+  background-color: var(--success-hover);
+}
+
+.button_type_cancel {
+  background-color: var(--secondary);
+}
+
+.button_type_cancel:hover {
+  background-color: var(--secondary-hover);
+}
+
+.button_type_edit {
+  background-color: var(--edit);
+}
+
+.button_type_edit:hover {
+  background-color: var(--edit-hover);
+}

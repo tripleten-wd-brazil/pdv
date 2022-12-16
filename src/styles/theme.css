@@ -2,10 +2,14 @@
   --lightgray: #ababab;
   --black: #1e1e1e;
   --white: #ffffff;
-  --primary: #de591f;
-  --secondary: #898989;
-  --success: #10a51f;
-  --danger: #de1f1f;
+  --primary: hsl(194, 75%, 44%);
+  --primary-hover: hsl(194, 75%, 40%);
+  --secondary: hsl(0, 0%, 54%);
+  --secondary-hover: hsl(0, 0%, 50%);
+  --success: hsl(126, 83%, 35%);
+  --success-hover: hsl(126, 83%, 30%);
+  --edit: hsl(54, 77%, 51%);
+  --edit-hover: hsl(54, 77%, 47%);
   --overlayColor: #acacac80;
   --boxShadow: rgba(0, 0, 0, 0.35);
 }
