@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/index.css" />
+    <script defer src="scripts/index.js"></script>
     <title>Practicum PDV</title>
   </head>
   <body>
@@ -58,10 +59,10 @@
               alt="Coca cola"
             />
             <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
+              <span class="product__price">R$ 4,00</span>
+              <span class="product__name">Coca cola cereja</span>
             </p>
-            <button class="button">Selecionar</button>
+            <button class="button product__button">Selecionar</button>
           </li>
           <li class="product">
             <img
@@ -73,7 +74,7 @@
               <span class="product__price">R$ 6,00</span>
               <span class="product__name">Coca cola</span>
             </p>
-            <button class="button">Selecionar</button>
+            <button class="button product__button">Selecionar</button>
           </li>
           <li class="product">
             <img
@@ -82,10 +83,10 @@
               alt="Coca cola"
             />
             <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
+              <span class="product__price">R$ 7,00</span>
+              <span class="product__name">Coca cola light</span>
             </p>
-            <button class="button">Selecionar</button>
+            <button class="button product__button">Selecionar</button>
           </li>
           <li class="product">
             <img
@@ -94,13 +95,28 @@
               alt="Coca cola"
             />
             <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
+              <span class="product__price">R$ 5,00</span>
+              <span class="product__name">Coca cola zero</span>
             </p>
-            <button class="button">Selecionar</button>
+            <button class="button product__button">Selecionar</button>
           </li>
         </ul>
-        <aside></aside>
+        <aside class="order">
+          <ul class="order__list">
+            <template id="order__entry">
+              <li class="order__item item">
+                <div>
+                  <span class="item__product"></span>
+                  <span class="item__price"></span>
+                </div>
+                <button>-</button>
+                <span class="item__quantity">1</span>
+                <button>+</button>
+                <span class="item__total"></span>
+              </li>
+            </template>
+          </ul>
+        </aside>
       </section>
     </main>
     <div class="overlay">
