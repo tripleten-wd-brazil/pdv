@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 64px;
+  height: fit-content;
 }
 
 .product {
