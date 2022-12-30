@@ -21,6 +21,7 @@
 e como no momento não sou grande coisa em JS e o pedido foi para que não o usasse, deixei essas estilizações no hover mesmo que não seja o pedido no figma */
 
 .categories__item:hover{
+<<<<<<< Updated upstream
   color: var(--white);
   cursor: pointer;
 }
@@ -33,4 +34,18 @@ e como no momento não sou grande coisa em JS e o pedido foi para que não o usa
 .categories__text:hover{
   font-size: 1.5rem;
   color: white;
+=======
+  cursor: pointer;
+>>>>>>> Stashed changes
+}
+
+.categories__icon_actived{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1941%) hue-rotate(238deg) brightness(117%) contrast(100%);  
+  transform: scale(1.8);
+}
+
+.categories__text_actived{
+  transform: scale(1.5);
+  color: white;
+  margin-left: 1.375rem;
 }

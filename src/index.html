@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;900&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <script defer src="scripts/index.js"></script>
+    <title>Practicum PDV</title>
+  </head>
+  <body>
+    <main class="container">
+      <nav class="categories">
+        <ul class="categories__list">
+          <li class="categorie">
+            <button class="categories__item">
+              <img
+                class="categories__icon "
+                src="./images/bebidas.svg"
+                alt="Bebidas"
+              />
+              <span class="categories__text">Bebidas</span>
+            </button>
+          </li>
+          <li class="categorie">
+            <button class="categories__item">
+              <img
+                class="categories__icon"
+                src="./images/doces.svg"
+                alt="Bebidas"
+              />
+              <span class="categories__text">Doces</span>
+            </button>
+          </li>
+          <li class="categorie">
+            <button class="categories__item">
+              <img
+                class="categories__icon"
+                src="./images/lanches.svg"
+                alt="Bebidas"
+              />
+              <span class="categories__text">Lanches</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <section class="">
+        <ul class="products">
+          <li class="product">
+            <img
+              class="product__image"
+              src="images/coca-cola.png"
+              alt="Coca cola"
+            />
+            <p class="product__text">
+              <span class="product__price">R$ 4,00</span>
+              <span class="product__name">Coca cola cereja</span>
+            </p>
+            <button class="button product__button">Selecionar</button>
+          </li>
+          <li class="product">
+            <img
+              class="product__image"
+              src="images/coca-cola.png"
+              alt="Coca cola"
+            />
+            <p class="product__text">
+              <span class="product__price">R$ 6,00</span>
+              <span class="product__name">Coca cola</span>
+            </p>
+            <button class="button product__button">Selecionar</button>
+          </li>
+          <li class="product">
+            <img
+              class="product__image"
+              src="images/coca-cola.png"
+              alt="Coca cola"
+            />
+            <p class="product__text">
+              <span class="product__price">R$ 7,00</span>
+              <span class="product__name">Coca cola light</span>
+            </p>
+            <button class="button product__button">Selecionar</button>
+          </li>
+          <li class="product">
+            <img
+              class="product__image"
+              src="images/coca-cola.png"
+              alt="Coca cola"
+            />
+            <p class="product__text">
+              <span class="product__price">R$ 5,00</span>
+              <span class="product__name">Coca cola zero</span>
+            </p>
+            <button class="button product__button">Selecionar</button>
+          </li>
+        </ul>
+        <aside class="order">
+          <ul class="order__list">
+            <template id="order__entry">
+              <li class="order__item item">
+                <div>
+                  <span class="item__product"></span>
+                  <span class="item__price"></span>
+                </div>
+                <button>-</button>
+                <span class="item__quantity">1</span>
+                <button>+</button>
+                <span class="item__total"></span>
+              </li>
+            </template>
+          </ul>
+        </aside>
+      </section>
+    </main>
+    <div class="overlay">
+      <div class="modal"></div>
+    </div>
+  </body>
+</html>
