@@ -68,7 +68,6 @@
           <div class="order__header">
             <p class="order__title">Resumo da Venda</p>
             <p class="order__author">José Costa</p>
-            <hr class="order__hr" />
           </div>
           <ul class="order__list">
             <template id="order__entry">
@@ -78,9 +77,9 @@
                   <span class="item__price"></span>
                 </div>
                 <div>
-                  <button>-</button>
+                  <img src="./images/minus_button.svg" alt="remover item" />
                   <span class="item__quantity">1</span>
-                  <button>+</button>
+                  <img src="./images/plus_button.svg" alt="adicionar item" />
                 </div>
                 <span class="item__total"></span>
               </li>
@@ -91,9 +90,9 @@
                 <span class="item__price">R$ 8,00</span>
               </div>
               <div>
-                <button class="order__quantity-button">-</button>
+                <img src="./images/minus_button.svg" alt="remover item" />
                 <span class="item__quantity">1</span>
-                <button class="order__quantity-button">+</button>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
               </div>
               <span class="item__total">R$ 8,00</span>
             </li>
@@ -103,9 +102,9 @@
                 <span class="item__price">R$ 5,00</span>
               </div>
               <div>
-                <button class="order__quantity-button">-</button>
+                <img src="./images/minus_button.svg" alt="remover item" />
                 <span class="item__quantity">1</span>
-                <button class="order__quantity-button">+</button>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
               </div>
               <span class="item__total">R$ 5,00</span>
             </li>
@@ -115,14 +114,13 @@
                 <span class="item__price">R$ 6,00</span>
               </div>
               <div>
-                <button class="order__quantity-button">-</button>
+                <img src="./images/minus_button.svg" alt="remover item" />
                 <span class="item__quantity">1</span>
-                <button class="order__quantity-button">+</button>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
               </div>
               <span class="item__total">R$ 6,00</span>
             </li>
           </ul>
-          <hr class="order__hr" />
           <div class="order__total-container">
             <div class="order__total-text-container">
               <span class="order__total-text-bold">Sub total</span>
@@ -135,7 +133,9 @@
               <span class="order__total-values-bold">R$ 17,00</span>
             </div>
           </div>
-          <button class="order__button">Finalizar</button>
+          <button class="button button_type_success order__button">
+            Finalizar
+          </button>
         </aside>
         <button id="open-product-modal" class="button button_type_success">
           Adicionar item

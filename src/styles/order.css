@@ -1,6 +1,7 @@
 .order {
-  background: #ffffff;
-  width: 367px;
+  background: var(--white);
+  flex-basis: 35%;
+  max-width: 367px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   display: flex;
@@ -12,25 +13,20 @@
 
 .order__header {
   width: 100%;
+  border-bottom: 1px solid var(--black);
 }
 
 .order__title {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 700;
 }
 
 .order__author {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 1.5;
   font-weight: 400;
   margin-bottom: 8px;
-}
-
-.order__hr {
-  height: 1px;
-  background-color: #1e1e1e;
-  width: 100%;
 }
 
 .order__list {
@@ -40,6 +36,8 @@
   flex-direction: column;
   row-gap: 24px;
   justify-content: end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--black);
 }
 
 .order__item {
@@ -49,8 +47,8 @@
 }
 
 .item__product {
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 0.875rem;
+  line-height: 1.5;
   font-weight: 700;
   width: 130px;
   display: block;
@@ -58,38 +56,22 @@
 
 .item__price {
   display: block;
-  font-size: 10px;
-  line-height: 15px;
+  font-size: 0.625rem;
+  line-height: 1.5;
   font-weight: 400;
 }
 
 .item__total {
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 1.5;
   font-weight: 700;
 }
 
 .item__quantity {
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.19;
   font-weight: 400;
   margin: 0 24px;
-}
-
-.order__quantity-button {
-  width: 16px;
-  height: 16px;
-  font-size: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 2px solid #1e1e1e;
-  background-color: white;
-}
-
-.order__quantity-button:hover {
-  cursor: pointer;
 }
 
 .order__total-container {
@@ -102,32 +84,20 @@
 .order__total-values-bold {
   display: block;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .order__total-text,
 .order__total-values {
   display: block;
   font-weight: 400;
-  font-size: 10px;
-  line-height: 15px;
+  font-size: 0.625rem;
+  line-height: 1.5;
   margin-bottom: 27px;
 }
 
 .order__button {
-  background-color: #10a51f;
   padding: 8px 80px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #ffffff;
   align-self: center;
-}
-
-.order__button:hover {
-  cursor: pointer;
-  filter: brightness(85%);
 }
