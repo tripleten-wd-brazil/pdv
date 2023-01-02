@@ -35,15 +35,20 @@
   display: flex;
   flex-direction: column;
   row-gap: 24px;
-  justify-content: end;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--black);
+  overflow-y: auto;
 }
 
 .order__item {
   list-style: none;
   display: flex;
   justify-content: space-between;
+}
+
+/* Coloquei margin-top no primeiro elemento da lista para fazer a lista começar por baixo */
+.order__item:first-child {
+  margin-top: auto;
 }
 
 .item__product {
@@ -80,16 +85,14 @@
   width: 100%;
 }
 
-.order__total-text-bold,
-.order__total-values-bold {
+.order__total-text-bold {
   display: block;
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
-.order__total-text,
-.order__total-values {
+.order__total-text {
   display: block;
   font-weight: 400;
   font-size: 0.625rem;
@@ -100,4 +103,10 @@
 .order__button {
   padding: 8px 80px;
   align-self: center;
+}
+
+@media screen and (max-width: 1140px) {
+  .item__quantity {
+    margin: 0;
+  }
 }

@@ -70,6 +70,60 @@
             <p class="order__author">José Costa</p>
           </div>
           <ul class="order__list">
+            <li class="order__item item">
+              <div>
+                <span class="item__product">Bolo de chocolate</span>
+                <span class="item__price">R$ 8,00</span>
+              </div>
+              <div>
+                <img src="./images/minus_button.svg" alt="remover item" />
+                <span class="item__quantity">1</span>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
+              </div>
+              <span class="item__total">R$ 8,00</span>
+            </li>
+
+            <li class="order__item item">
+              <div>
+                <span class="item__product">Café expresso</span>
+                <span class="item__price">R$ 5,00</span>
+              </div>
+              <div>
+                <img src="./images/minus_button.svg" alt="remover item" />
+                <span class="item__quantity">1</span>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
+              </div>
+              <span class="item__total">R$ 5,00</span>
+            </li>
+
+            <li class="order__item item">
+              <div>
+                <span class="item__product">Coca cola</span>
+                <span class="item__price">R$ 6,00</span>
+              </div>
+              <div>
+                <img src="./images/minus_button.svg" alt="remover item" />
+                <span class="item__quantity">1</span>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
+              </div>
+              <span class="item__total">R$ 6,00</span>
+            </li>
+
+            <li class="order__item item">
+              <div>
+                <span class="item__product"
+                  >Coca cola zero light super diet etc.</span
+                >
+                <span class="item__price">R$ 6,00</span>
+              </div>
+              <div>
+                <img src="./images/minus_button.svg" alt="remover item" />
+                <span class="item__quantity">1</span>
+                <img src="./images/plus_button.svg" alt="adicionar item" />
+              </div>
+              <span class="item__total">R$ 6,00</span>
+            </li>
+
             <template id="order__entry">
               <li class="order__item item">
                 <div>
@@ -84,53 +138,17 @@
                 <span class="item__total"></span>
               </li>
             </template>
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Bolo de chocolate</span>
-                <span class="item__price">R$ 8,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 8,00</span>
-            </li>
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Café expresso</span>
-                <span class="item__price">R$ 5,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 5,00</span>
-            </li>
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Coca cola</span>
-                <span class="item__price">R$ 6,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 6,00</span>
-            </li>
           </ul>
           <div class="order__total-container">
-            <div class="order__total-text-container">
+            <div>
               <span class="order__total-text-bold">Sub total</span>
               <span class="order__total-text">Descontos</span>
               <span class="order__total-text-bold">Total</span>
             </div>
-            <div class="order__total-values-container">
-              <span class="order__total-values-bold">R$ 19,00</span>
-              <span class="order__total-values">R$ 2,00</span>
-              <span class="order__total-values-bold">R$ 17,00</span>
+            <div>
+              <span class="order__total-text-bold">R$ 19,00</span>
+              <span class="order__total-text">R$ 2,00</span>
+              <span class="order__total-text-bold">R$ 17,00</span>
             </div>
           </div>
           <button class="button button_type_success order__button">
