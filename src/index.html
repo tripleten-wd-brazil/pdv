@@ -64,7 +64,7 @@
             </li>
           </template>
         </ul>
-        <aside class="order">
+        <aside class="order mobile-hidden" id="order">
           <div class="order__header">
             <p class="order__title">Resumo da Venda</p>
             <p class="order__author">José Costa</p>
@@ -151,7 +151,10 @@
               <span class="order__total-text-bold">R$ 17,00</span>
             </div>
           </div>
-          <button class="button button_type_success order__button">
+          <button
+            class="button button_type_success order__button"
+            id="order__button"
+          >
             Finalizar
           </button>
         </aside>
@@ -159,6 +162,12 @@
           Adicionar item
         </button>
       </section>
+      <button
+        class="order__mobile-button button button_type_edit"
+        id="order__mobile-button"
+      >
+        Resumo de vendas
+      </button>
     </main>
     <div class="modal modal_create-product">
       <article class="modal__container modal__container_product">
