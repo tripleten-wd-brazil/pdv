@@ -85,25 +85,43 @@
         </button>
       </section>
     </main>
-    <div class="modal modal_create-product">
+    <div class="modal modal_create-product modal_opened">
       <article class="modal__container modal__container_product">
-        <header>
-          <h1>Novo Produto</h1>
-          <button id="close-product-modal">X</button>
+        <header class="modal__header">
+          <h1 class="modal__title">Novo Produto</h1>
+          <button id="close-product-modal" class="modal__close">
+            <img src="./images/close.svg" alt="Close modal" />
+          </button>
         </header>
         <main>
           <form name="form-product" class="form">
             <div class="form__control">
               <label class="form__label" for="image">Imagem do Produto</label>
-              <input name="image" id="image" />
+              <span class="form__icon"></span
+              ><input
+                name="image"
+                id="image"
+                class="modal__input modal__input_image"
+                placeholder="Digite o link da imagem"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="name">Nome do Produto</label>
-              <input name="name" id="name" />
+              <input
+                name="name"
+                id="name"
+                class="modal__input"
+                placeholder="Digite o nome do produto"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="price">Preço do Produto</label>
-              <input name="price" id="price" />
+              <input
+                name="price"
+                id="price"
+                class="modal__input"
+                placeholder="Digite o valor do produto"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="category"

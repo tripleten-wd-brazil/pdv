@@ -2,6 +2,9 @@
   --lightgray: #ababab;
   --black: #1e1e1e;
   --white: #ffffff;
+  --middle-gray: #bfbebe;
+  --gray: hsl(0, 1%, 75%);
+  --border: hsl(0, 0%, 63%);
   --primary: hsl(194, 75%, 44%);
   --primary-hover: hsl(194, 75%, 40%);
   --secondary: hsl(0, 0%, 54%);
