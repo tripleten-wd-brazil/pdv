@@ -52,54 +52,17 @@
       </nav>
       <section class="">
         <ul class="products">
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 4,00</span>
-              <span class="product__name">Coca cola cereja</span>
-            </p>
-            <button class="button product__button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
-            </p>
-            <button class="button product__button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 7,00</span>
-              <span class="product__name">Coca cola light</span>
-            </p>
-            <button class="button product__button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 5,00</span>
-              <span class="product__name">Coca cola zero</span>
-            </p>
-            <button class="button product__button">Selecionar</button>
-          </li>
+          <template id="product-card">
+            <li class="product">
+              <p class="product__category"></p>
+              <img class="product__image" />
+              <p class="product__text">
+                <span class="product__price"></span>
+                <span class="product__name"></span>
+              </p>
+              <button class="button product__button">Selecionar</button>
+            </li>
+          </template>
         </ul>
         <aside class="order">
           <ul class="order__list">
@@ -117,10 +80,45 @@
             </template>
           </ul>
         </aside>
+        <button id="open-product-modal" class="button button_type_success">
+          Adicionar item
+        </button>
       </section>
     </main>
-    <div class="overlay">
-      <div class="modal"></div>
+    <div class="modal modal_create-product">
+      <article class="modal__container modal__container_product">
+        <header>
+          <h1>Novo Produto</h1>
+          <button id="close-product-modal">X</button>
+        </header>
+        <main>
+          <form name="form-product" class="form">
+            <div class="form__control">
+              <label class="form__label" for="image">Imagem do Produto</label>
+              <input name="image" id="image" />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="name">Nome do Produto</label>
+              <input name="name" id="name" />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="price">Preço do Produto</label>
+              <input name="price" id="price" />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="category"
+                >Categoria do Produto
+              </label>
+              <select name="category" id="category">
+                <option value="Bebidas">Bebidas</option>
+                <option value="Doces">Doces</option>
+                <option value="Lanches">Lanches</option>
+              </select>
+            </div>
+            <button class="button button_type_success">Salvar Produto</button>
+          </form>
+        </main>
+      </article>
     </div>
   </body>
 </html>

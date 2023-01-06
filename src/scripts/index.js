@@ -3,7 +3,7 @@ function currencyToNumber(currency) {
 }
 
 function numberToCurrency(number) {
-  return `R$ ${number.toFixed(2).replace(".", ",")}`;
+  return `R$ ${Number(number).toFixed(2).replace(".", ",")}`;
 }
 
 function addProduct(event) {
@@ -62,3 +62,43 @@ const buttons = document.querySelectorAll(".product__button");
 buttons.forEach(function (button) {
   button.addEventListener("click", addProduct);
 });
+
+const productForm = document.forms["form-product"];
+function toggleProductModal() {
+  const productModal = document.querySelector(".modal_create-product");
+  productModal.classList.toggle("modal_opened");
+  productForm.elements.image.focus();
+}
+
+const buttonOpenProductModal = document.querySelector("#open-product-modal");
+buttonOpenProductModal.addEventListener("click", toggleProductModal);
+
+const buttonCloseProductModal = document.querySelector("#close-product-modal");
+buttonCloseProductModal.addEventListener("click", toggleProductModal);
+
+productForm.addEventListener("submit", createProduct);
+function createProduct(evt) {
+  evt.preventDefault();
+  // Object destructuring ES2015
+  const { name, price, category, image } = productForm.elements;
+  const productCard = document
+    .querySelector("#product-card")
+    .content.cloneNode(true);
+
+  const nameElement = productCard.querySelector(".product__name");
+  const priceElement = productCard.querySelector(".product__price");
+  const imageElement = productCard.querySelector(".product__image");
+  const categoryElement = productCard.querySelector(".product__category");
+
+  nameElement.textContent = name.value;
+  priceElement.textContent = numberToCurrency(price.value);
+
+  imageElement.src = image.value;
+  imageElement.alt = name.value;
+
+  categoryElement.textContent = category.value;
+  const productList = document.querySelector(".products");
+  productList.append(productCard);
+  toggleProductModal();
+  productForm.reset();
+}

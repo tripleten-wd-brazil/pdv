@@ -33,3 +33,7 @@
 .product__name {
   font-size: 0.875rem;
 }
+
+.product__category {
+  display: none;
+}
