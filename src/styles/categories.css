@@ -17,9 +17,6 @@
   cursor: pointer;
 }
 
-/* Tentei dar um query selector para colocar as classes 'categories__item, categories__icon e categories__text' no evento click, porém só funcionava para o primeiro elemento
-e como no momento não sou grande coisa em JS e o pedido foi para que não o usasse, deixei essas estilizações no hover mesmo que não seja o pedido no figma */
-
 .categories__item:hover{
   color: var(--white);
   cursor: pointer;
