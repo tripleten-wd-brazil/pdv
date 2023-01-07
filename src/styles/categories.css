@@ -18,7 +18,7 @@
   transition: linear .5s;
 }
 
-.categories__text{
+.categories__text , .categories__icon{
   transition: linear .5s;
 }
 
