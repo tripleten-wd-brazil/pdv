@@ -21,3 +21,55 @@
 .modal_opened {
   display: flex;
 }
+
+.modal__container_delete{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 24px;
+  padding: 32px 40px;
+}
+
+.modal__title{
+  font-family: "Inter", Arial, sans-serif;
+  font-style: bold;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 21px;
+}
+
+.modal__text{
+  max-width: 24.1875rem;
+  font-family: 'Lato', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3A5667; 
+}
+
+.modal__text_delete{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.modal__buttons{
+  min-width: 25.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+/* preguiça de criar uma tag e classe para o interior do botão */
+.modal__button{
+  padding: .7813rem 3.2188rem;
+  border-style: none;
+  cursor: pointer;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}

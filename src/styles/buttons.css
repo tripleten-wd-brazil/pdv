@@ -37,3 +37,13 @@
 .button_type_edit:hover {
   background-color: var(--edit-hover);
 }
+
+.button__false{
+  background: #898989;
+  border-radius: 8px;
+}
+
+.button__true{
+  background: #10A51F;
+  border-radius: 8px;
+}
