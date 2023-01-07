@@ -21,3 +21,11 @@
 .modal_opened {
   display: flex;
 }
+
+.modal_container_sucess{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
