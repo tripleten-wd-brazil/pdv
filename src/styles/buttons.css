@@ -37,3 +37,8 @@
 .button_type_edit:hover {
   background-color: var(--edit-hover);
 }
+
+.button_local_modal {
+  width: 196px;
+  height: 43px;
+}

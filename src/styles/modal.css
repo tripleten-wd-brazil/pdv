@@ -46,6 +46,7 @@
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 8px;
+  color: var(--lightblack);
 }
 
 .modal__input {
