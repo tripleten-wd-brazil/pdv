@@ -105,6 +105,15 @@
   margin: auto;
 }
 
+.order__item-button {
+  background-color: var(--white);
+  border: none;
+}
+
+.order__item-button:hover {
+  cursor: pointer;
+}
+
 .order__mobile-button {
   position: fixed;
   bottom: 28px;
@@ -117,13 +126,11 @@
   display: none;
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1200px) {
   .item__quantity {
     margin: 0;
   }
-}
 
-@media screen and (max-width: 800px) {
   .mobile-hidden {
     visibility: hidden;
   }

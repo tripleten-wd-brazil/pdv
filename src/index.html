@@ -70,60 +70,6 @@
             <p class="order__author">José Costa</p>
           </div>
           <ul class="order__list">
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Bolo de chocolate</span>
-                <span class="item__price">R$ 8,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 8,00</span>
-            </li>
-
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Café expresso</span>
-                <span class="item__price">R$ 5,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 5,00</span>
-            </li>
-
-            <li class="order__item item">
-              <div>
-                <span class="item__product">Coca cola</span>
-                <span class="item__price">R$ 6,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 6,00</span>
-            </li>
-
-            <li class="order__item item">
-              <div>
-                <span class="item__product"
-                  >Coca cola zero light super diet etc.</span
-                >
-                <span class="item__price">R$ 6,00</span>
-              </div>
-              <div>
-                <img src="./images/minus_button.svg" alt="remover item" />
-                <span class="item__quantity">1</span>
-                <img src="./images/plus_button.svg" alt="adicionar item" />
-              </div>
-              <span class="item__total">R$ 6,00</span>
-            </li>
-
             <template id="order__entry">
               <li class="order__item item">
                 <div>
@@ -131,9 +77,13 @@
                   <span class="item__price"></span>
                 </div>
                 <div>
-                  <img src="./images/minus_button.svg" alt="remover item" />
+                  <button class="order__item-button">
+                    <img src="./images/minus_button.svg" alt="remover item" />
+                  </button>
                   <span class="item__quantity">1</span>
-                  <img src="./images/plus_button.svg" alt="adicionar item" />
+                  <button class="order__item-button">
+                    <img src="./images/plus_button.svg" alt="adicionar item" />
+                  </button>
                 </div>
                 <span class="item__total"></span>
               </li>
