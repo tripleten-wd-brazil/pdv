@@ -1,3 +1,7 @@
+.categories {
+  margin-bottom: 56px;
+}
+
 .categories__list {
   list-style: none;
   display: flex;

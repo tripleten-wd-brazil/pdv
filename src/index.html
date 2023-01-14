@@ -50,7 +50,7 @@
           </li>
         </ul>
       </nav>
-      <section class="">
+      <section class="store">
         <ul class="products">
           <template id="product-card">
             <li class="product">
@@ -64,7 +64,11 @@
             </li>
           </template>
         </ul>
-        <aside class="order">
+        <aside class="order mobile-hidden" id="order">
+          <div class="order__header">
+            <p class="order__title">Resumo da Venda</p>
+            <p class="order__author">José Costa</p>
+          </div>
           <ul class="order__list">
             <template id="order__entry">
               <li class="order__item item">
@@ -72,18 +76,48 @@
                   <span class="item__product"></span>
                   <span class="item__price"></span>
                 </div>
-                <button>-</button>
-                <span class="item__quantity">1</span>
-                <button>+</button>
+                <div>
+                  <button class="order__item-button">
+                    <img src="./images/minus_button.svg" alt="remover item" />
+                  </button>
+                  <span class="item__quantity">1</span>
+                  <button class="order__item-button">
+                    <img src="./images/plus_button.svg" alt="adicionar item" />
+                  </button>
+                </div>
                 <span class="item__total"></span>
               </li>
             </template>
           </ul>
+          <div class="order__total-container">
+            <div>
+              <span class="order__total-text-bold">Sub total</span>
+              <span class="order__total-text">Descontos</span>
+              <span class="order__total-text-bold">Total</span>
+            </div>
+            <div>
+              <span class="order__total-text-bold">R$ 19,00</span>
+              <span class="order__total-text">R$ 2,00</span>
+              <span class="order__total-text-bold">R$ 17,00</span>
+            </div>
+          </div>
+          <button
+            class="button button_type_success order__button"
+            id="order__button"
+          >
+            Finalizar
+          </button>
         </aside>
         <button id="open-product-modal" class="button button_type_success">
           Adicionar item
         </button>
       </section>
+      <button
+        class="order__mobile-button button button_type_edit"
+        id="order__mobile-button"
+      >
+        Resumo de vendas
+      </button>
     </main>
     <div class="modal modal_create-product ">
       <article class="modal__container modal__container_product">
