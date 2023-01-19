@@ -86,6 +86,10 @@ const productForm = document.forms["form-product"];
 function toggleProductModal() {
   const productModal = document.querySelector(".modal_create-product");
   productModal.classList.toggle("modal_opened");
+  Array.from(productForm.elements).forEach((input) => {
+    input.classList.remove("form__input_invalid");
+  });
+  productForm.elements.button_submit.disabled = true;
   productForm.elements.image.focus();
 }
 
@@ -98,7 +102,11 @@ buttonCloseProductModal.addEventListener("click", toggleProductModal);
 productForm.addEventListener("submit", createProduct);
 function createProduct(evt) {
   evt.preventDefault();
-  // Object destructuring ES2015
+  if (!productForm.checkValidity()) {
+    productForm.elements.button_submit.disabled = true;
+    return;
+  }
+
   const { name, price, category, image } = productForm.elements;
   const productCard = document
     .querySelector("#product-card")
@@ -121,3 +129,30 @@ function createProduct(evt) {
   toggleProductModal();
   productForm.reset();
 }
+
+function validateInputState(event) {
+  const input = event.target;
+  const isInvalidInput = !input.checkValidity();
+  if (isInvalidInput) {
+    productForm.elements.button_submit.disabled = true;
+    input.classList.add("form__input_invalid");
+    return;
+  }
+
+  input.classList.remove("form__input_invalid");
+  const isValidForm = productForm.checkValidity();
+  if (isValidForm) {
+    productForm.elements.button_submit.disabled = false;
+  }
+}
+
+function enableValidation(config) {
+  const inputs = document.querySelectorAll(".form__input");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", validateInputState);
+    input.addEventListener("blur", validateInputState);
+  });
+}
+
+enableValidation({});

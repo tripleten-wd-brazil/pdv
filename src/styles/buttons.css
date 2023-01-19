@@ -10,7 +10,12 @@
   cursor: pointer;
 }
 
-.button:hover {
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.button:not(:disabled):hover {
   background-color: var(--primary-hover);
 }
 
@@ -18,7 +23,7 @@
   background-color: var(--success);
 }
 
-.button_type_success:hover {
+.button_type_success:not(:disabled):hover {
   background-color: var(--success-hover);
 }
 

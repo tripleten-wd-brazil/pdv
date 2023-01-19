@@ -12,4 +12,5 @@
   --edit-hover: hsl(54, 77%, 47%);
   --overlayColor: #acacac80;
   --boxShadow: rgba(0, 0, 0, 0.35);
+  --danger: hsl(0, 77%, 53%);
 }
