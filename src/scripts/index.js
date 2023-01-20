@@ -156,3 +156,31 @@ function enableValidation(config) {
 }
 
 enableValidation({});
+
+function showAlert({ type, productName }) {
+  const alertTemplate = document.querySelector("#alert-template");
+  const alertElement = alertTemplate.content.cloneNode(true);
+  const types = {
+    add: { title: "PRODUTO ADICIONADO", action: "adicionado" },
+    edit: { title: "PRODUTO ALTERADO", action: "alterado" },
+    remove: { title: "PRODUTO EXCLUIDO", action: "excluído" },
+  };
+
+  const mainContainer = document.querySelector(".container");
+
+  const alertContainer = alertElement.querySelector(".alert");
+  const title = alertElement.querySelector(".alert__title");
+  const textProduct = alertElement.querySelector(".alert__text-product");
+  const textAction = alertElement.querySelector("#alert__text-action");
+
+  alertContainer.classList.add(`alert-${type}`);
+  title.textContent = types[type].title;
+  textProduct.textContent = productName;
+  textAction.textContent = types[type].action;
+
+  mainContainer.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, 3000);
+}
