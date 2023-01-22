@@ -2,4 +2,11 @@
   display: flex;
   gap: 1rem;
   max-height: 1rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 655px) {
+  .menu__item {
+    max-height: 2.5rem;
+  }
 }
