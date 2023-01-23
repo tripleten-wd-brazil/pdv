@@ -157,30 +157,39 @@ function enableValidation(config) {
 
 enableValidation({});
 
-function showAlert({ type, productName }) {
-  const alertTemplate = document.querySelector("#alert-template");
-  const alertElement = alertTemplate.content.cloneNode(true);
+function showProductsAlert({ type, productName }) {
   const types = {
     add: { title: "PRODUTO ADICIONADO", action: "adicionado" },
     edit: { title: "PRODUTO ALTERADO", action: "alterado" },
     remove: { title: "PRODUTO EXCLUIDO", action: "excluído" },
   };
 
-  const mainContainer = document.querySelector(".container");
+  // Lança um erro se o tipo for inválido
+  if (!Object.keys(types).includes(type)) {
+    throw new Error("Passed invalid type to showProductsAlert function");
+  }
 
-  const alertContainer = alertElement.querySelector(".alert");
+  const alertTemplate = document.querySelector("#alert-template");
+  const alertElement = alertTemplate.content.cloneNode(true);
+
+  const alertContainer = document.querySelector(".alert_container");
+
+  const alert = alertElement.querySelector(".alert");
   const title = alertElement.querySelector(".alert__title");
   const textProduct = alertElement.querySelector(".alert__text-product");
   const textAction = alertElement.querySelector("#alert__text-action");
 
-  alertContainer.classList.add(`alert-${type}`);
+  alert.classList.add(`alert_${type}`);
   title.textContent = types[type].title;
   textProduct.textContent = productName;
   textAction.textContent = types[type].action;
 
-  mainContainer.append(alertContainer);
+  alertContainer.append(alert);
 
   setTimeout(() => {
-    alertContainer.remove();
-  }, 3000);
+    alert.addEventListener("animationend", (evt) => {
+      alert.remove();
+    });
+    alert.classList.add("hide_alert");
+  }, 2500);
 }
