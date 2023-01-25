@@ -2,7 +2,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.3;
-  color: hsla(0, 0%, 67%, 1);
+  color: var(--lightgrey);
 }
 
 @media screen and (min-width: 655px) {

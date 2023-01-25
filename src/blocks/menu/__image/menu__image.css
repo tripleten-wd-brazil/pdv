@@ -1,3 +1,9 @@
 .menu__image {
-  max-height: inherit;
+  transform: scale(0.75);
+}
+
+@media screen and (min-width: 655px) {
+  .menu__image {
+    transform: none;
+  }
 }
