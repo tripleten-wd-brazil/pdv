@@ -5,4 +5,16 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  color: var(--lightgrey);
+  fill: var(--lightgrey);
+  stroke: var(--lightgrey);
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu__item:hover {
+  cursor: pointer;
+  color: var(--white);
+  fill: var(--white);
+  stroke: var(--white);
+  transform: scale(1.1);
 }
