@@ -4,6 +4,8 @@
   flex-wrap: wrap;
   gap: 64px;
   height: fit-content;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .product {
@@ -37,4 +39,16 @@
 
 .product__category {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+    grid-column-end: 3;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .products {
+    grid-column-end: 2;
+  }
 }

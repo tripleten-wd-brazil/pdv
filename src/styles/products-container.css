@@ -1,0 +1,26 @@
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(2, 164px) 250px;
+  grid-template-rows: repeat(3, 164px);
+  grid-column-start: 1;
+  gap: 64px;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  height: 620px;
+  overflow: scroll;
+  grid-row-end: 4;
+}
+
+@media screen and (max-width: 768px) {
+  .products-container {
+    grid-template-columns: 164px 250px;
+    grid-template-rows: repeat(3, 164px);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .products-container {
+    grid-template-columns: 250px;
+    grid-template-rows: repeat(3, 164px);
+  }
+}

@@ -51,19 +51,22 @@
         </ul>
       </nav>
       <section class="store">
-        <ul class="products">
-          <template id="product-card">
-            <li class="product">
-              <p class="product__category"></p>
-              <img class="product__image" />
-              <p class="product__text">
-                <span class="product__price"></span>
-                <span class="product__name"></span>
-              </p>
-              <button class="button product__button">Selecionar</button>
-            </li>
-          </template>
-        </ul>
+        <div class="products-container">
+          <ul class="products">
+            <template id="product-card">
+              <li class="product">
+                <p class="product__category"></p>
+                <img class="product__image" />
+                <p class="product__text">
+                  <span class="product__price"></span>
+                  <span class="product__name"></span>
+                </p>
+                <button class="button product__button">Selecionar</button>
+              </li>
+            </template>
+          </ul>
+        </div>
+
         <div>
           <div class="action-buttons">
             <button id="open-product-modal" class="button button_type_success">
