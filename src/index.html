@@ -83,11 +83,11 @@
                     <span class="item__price"></span>
                   </div>
                   <div>
-                    <button class="order__item-button">
+                    <button class="order__item-button order__item-button-minus">
                       <img src="./images/minus_button.svg" alt="remover item" />
                     </button>
                     <span class="item__quantity">1</span>
-                    <button class="order__item-button">
+                    <button class="order__item-button order__item-button-plus">
                       <img
                         src="./images/plus_button.svg"
                         alt="adicionar item"
@@ -105,9 +105,15 @@
                 <span class="order__total-text-bold">Total</span>
               </div>
               <div>
-                <span class="order__total-text-bold">R$ 19,00</span>
-                <span class="order__total-text">R$ 2,00</span>
-                <span class="order__total-text-bold">R$ 17,00</span>
+                <span class="order__total-text-bold" id="order__sub-total"
+                  >R$ 0,00</span
+                >
+                <span class="order__total-text" id="order__discount"
+                  >R$ 2,00</span
+                >
+                <span class="order__total-text-bold" id="order__total"
+                  >R$ 0,00</span
+                >
               </div>
             </div>
             <button

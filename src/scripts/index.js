@@ -61,17 +61,80 @@ function incrementExistentProduct(existentProduct, price) {
   totalElement.textContent = numberToCurrency(total + priceNumber);
 }
 
+function calculateTotalAddProduct(price, quantity = 1) {
+  const orderSubTotal = document.querySelector("#order__sub-total");
+  const orderDiscount = document.querySelector("#order__discount");
+  const orderTotal = document.querySelector("#order__total");
+
+  const orderSubTotalNumber =
+    currencyToNumber(orderSubTotal.textContent) + price * quantity;
+  orderSubTotal.textContent = numberToCurrency(orderSubTotalNumber);
+  orderTotal.textContent = numberToCurrency(
+    orderSubTotalNumber - currencyToNumber(orderDiscount.textContent)
+  );
+}
+
+function calculateTotalRemoveProduct(price, quantity = 1) {
+  const orderSubTotal = document.querySelector("#order__sub-total");
+  const orderDiscount = document.querySelector("#order__discount");
+  const orderTotal = document.querySelector("#order__total");
+
+  const orderSubTotalNumber =
+    currencyToNumber(orderSubTotal.textContent) - price * quantity;
+  orderSubTotal.textContent = numberToCurrency(orderSubTotalNumber);
+  const orderTotalNumber =
+    orderSubTotalNumber - currencyToNumber(orderDiscount.textContent) > 0
+      ? orderSubTotalNumber - currencyToNumber(orderDiscount.textContent)
+      : 0;
+  orderTotal.textContent = numberToCurrency(orderTotalNumber);
+}
+
 function addProductToOrder(productName, price, orderList) {
   const itemTemplate = document.querySelector("#order__entry");
   const itemElement = itemTemplate.content.cloneNode(true);
 
   // popular o item
+  const itemContainer = itemElement.querySelector(".order__item");
   const itemNameElement = itemElement.querySelector(".item__product");
   const itemPriceElement = itemElement.querySelector(".item__price");
   const itemTotalElement = itemElement.querySelector(".item__total");
+  const itemButtonMinus = itemElement.querySelector(
+    ".order__item-button-minus"
+  );
+  const itemButtonPlus = itemElement.querySelector(".order__item-button-plus");
+  const itemQuantity = itemElement.querySelector(".item__quantity");
+
   itemNameElement.textContent = productName;
   itemPriceElement.textContent = price;
   itemTotalElement.textContent = price;
+
+  // Cria eventos de diminuir/aumentar preço dos itens
+  const priceNumber = currencyToNumber(price);
+  calculateTotalAddProduct(priceNumber);
+
+  itemButtonMinus.addEventListener("click", (evt) => {
+    const newQuantity = Number(itemQuantity.textContent) - 1;
+    if (newQuantity > 0) {
+      itemQuantity.textContent = newQuantity;
+      itemTotalElement.textContent = numberToCurrency(
+        newQuantity * priceNumber
+      );
+    } else {
+      itemContainer.classList.add("order__item-remove");
+      itemContainer.addEventListener("animationend", () => {
+        itemContainer.remove();
+      });
+    }
+    calculateTotalRemoveProduct(priceNumber);
+  });
+
+  itemButtonPlus.addEventListener("click", (evt) => {
+    const newQuantity = Number(itemQuantity.textContent) + 1;
+    itemQuantity.textContent = newQuantity;
+    itemTotalElement.textContent = numberToCurrency(newQuantity * priceNumber);
+
+    calculateTotalAddProduct(priceNumber);
+  });
 
   // adicionar o produto na listagem da venda
   orderList.prepend(itemElement);
@@ -100,6 +163,7 @@ const buttonCloseProductModal = document.querySelector("#close-product-modal");
 buttonCloseProductModal.addEventListener("click", toggleProductModal);
 
 productForm.addEventListener("submit", createProduct);
+
 function createProduct(evt) {
   evt.preventDefault();
   if (!productForm.checkValidity()) {
