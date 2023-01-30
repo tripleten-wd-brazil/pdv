@@ -23,6 +23,7 @@ const hideOrderList = function (event) {
   mobileOrderListBtn.classList.remove("mobile-hidden");
   orderList.classList.add("mobile-hidden");
 };
+
 orderButton.addEventListener("click", hideOrderList);
 
 function addProduct(event) {
@@ -43,6 +44,19 @@ function addProduct(event) {
   const existentProduct = orderProductsArray.find(function (element) {
     return element.textContent === description;
   });
+
+  const totalElement = document.querySelector(".order__total");
+  const subtotalElement = document.querySelector(".order__subtotal");
+
+  const total = currencyToNumber(totalElement.textContent);
+  const subtotal = currencyToNumber(subtotalElement.textContent);
+  const priceValue = currencyToNumber(price);
+
+  const updatedTotal = total + priceValue;
+  totalElement.textContent = numberToCurrency(updatedTotal);
+
+  const updatedSubtotal = subtotal + priceValue;
+  subtotalElement.textContent = numberToCurrency(updatedSubtotal);
 
   if (existentProduct) return incrementExistentProduct(existentProduct, price);
   addProductToOrder(description, price, orderList);
@@ -77,11 +91,6 @@ function addProductToOrder(productName, price, orderList) {
   orderList.prepend(itemElement);
 }
 
-const buttons = document.querySelectorAll(".product__button");
-buttons.forEach(function (button) {
-  button.addEventListener("click", addProduct);
-});
-
 const productForm = document.forms["form-product"];
 function toggleProductModal() {
   const productModal = document.querySelector(".modal_create-product");
@@ -99,8 +108,8 @@ buttonOpenProductModal.addEventListener("click", toggleProductModal);
 const buttonCloseProductModal = document.querySelector("#close-product-modal");
 buttonCloseProductModal.addEventListener("click", toggleProductModal);
 
-productForm.addEventListener("submit", createProduct);
-function createProduct(evt) {
+productForm.addEventListener("submit", saveProduct);
+function saveProduct(evt) {
   evt.preventDefault();
   if (!productForm.checkValidity()) {
     productForm.elements.button_submit.disabled = true;
@@ -108,6 +117,23 @@ function createProduct(evt) {
   }
 
   const { name, price, category, image } = productForm.elements;
+  const product = {
+    name: name.value,
+    image: image.value,
+    price: price.value,
+    category: category.value,
+  };
+
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+  products.push(product);
+  localStorage.setItem("products", JSON.stringify(products));
+
+  createProduct(product);
+  toggleProductModal();
+  productForm.reset();
+}
+
+function createProduct({ name, image, price, category }) {
   const productCard = document
     .querySelector("#product-card")
     .content.cloneNode(true);
@@ -116,18 +142,19 @@ function createProduct(evt) {
   const priceElement = productCard.querySelector(".product__price");
   const imageElement = productCard.querySelector(".product__image");
   const categoryElement = productCard.querySelector(".product__category");
+  const buttonElement = productCard.querySelector(".product__button");
 
-  nameElement.textContent = name.value;
-  priceElement.textContent = numberToCurrency(price.value);
+  nameElement.textContent = name;
+  priceElement.textContent = numberToCurrency(price);
 
-  imageElement.src = image.value;
-  imageElement.alt = name.value;
+  imageElement.src = image;
+  imageElement.alt = name;
 
-  categoryElement.textContent = category.value;
+  categoryElement.textContent = category;
+  buttonElement.addEventListener("click", addProduct);
+
   const productList = document.querySelector(".products");
   productList.append(productCard);
-  toggleProductModal();
-  productForm.reset();
 }
 
 function validateInputState(event) {
@@ -193,3 +220,6 @@ function showProductsAlert({ type, productName }) {
     alert.classList.add("hide_alert");
   }, 2500);
 }
+
+const products = JSON.parse(localStorage.getItem("products")) || [];
+products.forEach((product) => createProduct(product));

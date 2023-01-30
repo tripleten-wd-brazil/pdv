@@ -6,9 +6,23 @@
   gap: 64px;
   grid-column-end: 4;
   grid-row-start: 1;
-  height: 620px;
-  overflow: scroll;
+  height: 630px;
+  overflow-x: hidden;
+  overflow-y: scroll;
   grid-row-end: 4;
+}
+
+.products-container::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+.products-container::-webkit-scrollbar-track {
+  background: rgba(80, 138, 156, 0.2); /* color of the tracking area */
+}
+
+.products-container::-webkit-scrollbar-thumb {
+  background-color: rgba(80, 138, 156, 1); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 @media screen and (max-width: 768px) {
