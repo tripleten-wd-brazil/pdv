@@ -8,8 +8,11 @@
   --secondary-hover: hsl(0, 0%, 50%);
   --success: hsl(126, 83%, 35%);
   --success-hover: hsl(126, 83%, 30%);
+  --danger: hsl(0, 100%, 65%);
+  --danger-hover: hsl(0, 100%, 60%);
   --edit: hsl(54, 77%, 51%);
   --edit-hover: hsl(54, 77%, 47%);
   --overlayColor: #acacac80;
   --boxShadow: rgba(0, 0, 0, 0.35);
+  --danger: hsl(0, 77%, 53%);
 }
