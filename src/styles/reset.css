@@ -5,3 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: "Inter";
+  color: var(--black);
+  background: linear-gradient(180deg, #0A2A34 0%, #60818e)
+    no-repeat;
+  height: 100vh;
+}

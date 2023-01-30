@@ -6,16 +6,16 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--overlayColor);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(.125rem);
   top: 0;
   left: 0;
 }
 
 .modal__container {
   background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0px 6px 6px var(--boxShadow);
-  padding: 32px 24px;
+  border-radius: 1rem;
+  box-shadow: 0px .375rem .375rem var(--boxShadow);
+  padding: 2rem 1.5rem;
 }
 
 .modal_opened {
@@ -31,18 +31,21 @@
 }
 
 .modal__title{
-  font-family: "Inter", Arial, sans-serif;
   font-style: bold;
   font-weight: 900;
-  font-size: 24px;
-  line-height: 21px;
+  font-size: 1.5rem;
+  line-height: 1.3125rem / 1.5rem;
 }
 
 .modal__text{
-  font-family: 'Lato', Arial, sans-serif;
+  font-family: var(--text);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.1875rem;
   color: #3A5667; 
+}
+
+.text{
+  font-family: 'Lato', Arial, sans-serif;
 }

@@ -83,29 +83,18 @@ buttons.forEach(function (button) {
 });
 
 //navbar
-
 const navList = document.querySelectorAll('.categories__item');
 
-function navItemActive(element){
-  const navItem = element.target.closest('.categorie');
-  const navIcon = navItem.querySelector('.categories__icon');
-  const navText = navItem.querySelector('.categories__text');
-  
+function navItemActive(e){
+  const navItem = e.target.closest('.categories__item');  
   resetClasses();
-
-  navIcon.classList.add('categories__icon_actived');
-  navText.classList.add('categories__text_actived');
-
+  navItem.classList.add('categories__actived');
 }
 
 navList.forEach((element)=>element.addEventListener('click', navItemActive));
 
 function resetClasses() {
-  const navIcons = document.querySelectorAll('.categories__icon');
-  navIcons.forEach((element) => element.className = 'categories__icon');
-
-  const navTexts = document.querySelectorAll('.categories__text');
-  navTexts.forEach((element) => element.className = 'categories__text');
+  navList.forEach((element) => element.classList.remove('categories__actived'));
 }
 
 //Form do modal
