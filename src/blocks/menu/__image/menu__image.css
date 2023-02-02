@@ -1,9 +1,9 @@
 .menu__image {
-  transform: scale(0.75);
+  max-height: 15px;
 }
 
 @media screen and (min-width: 655px) {
   .menu__image {
-    transform: none;
+    max-height: none;
   }
 }

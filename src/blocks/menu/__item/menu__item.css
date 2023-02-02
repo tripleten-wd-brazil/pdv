@@ -6,9 +6,3 @@
   border: none;
   padding: 0;
 }
-
-@media screen and (min-width: 655px) {
-  .menu__item {
-    max-height: 2.5rem;
-  }
-}
