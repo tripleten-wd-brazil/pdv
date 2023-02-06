@@ -1,0 +1,13 @@
+.menu__paragraph {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--lightgrey);
+}
+
+@media screen and (min-width: 655px) {
+  .menu__paragraph {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+}

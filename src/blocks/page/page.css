@@ -1,0 +1,7 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(180deg, #0a2a34 0%, rgba(80, 138, 156, 0.2) 100%);
+  background-attachment: fixed;
+}

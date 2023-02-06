@@ -1,0 +1,16 @@
+.menu__bar {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 655px) {
+  .menu__bar {
+    margin-left: 1rem;
+    justify-content: left;
+    gap: 4rem;
+  }
+}

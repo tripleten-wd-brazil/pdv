@@ -1,0 +1,8 @@
+.menu__item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

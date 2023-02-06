@@ -1,1 +1,17 @@
 @import url("./reset.css");
+
+@import url("../fonts/inter.css");
+@import url("../theme/theme.css");
+
+/* Blocks */
+
+@import url("../blocks/page/page.css");
+@import url("../blocks/menu/menu.css");
+
+/* Elements */
+
+@import url("../blocks/menu/__bar/menu__bar.css");
+@import url("../blocks/menu/__item/menu__item.css");
+@import url("../blocks/menu/__paragraph/menu__paragraph.css");
+@import url("../blocks/menu/__image/menu__image.css");
+@import url("../blocks/menu/__ruler/menu__ruler.css");
