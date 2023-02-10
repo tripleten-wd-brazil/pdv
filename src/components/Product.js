@@ -1,6 +1,4 @@
 import { numberToCurrency } from "./Currency.js";
-import { addProduct } from "./Order.js";
-
 export default class Product {
   constructor(productData) {
     this._name = productData.name;
@@ -9,7 +7,7 @@ export default class Product {
     this._category = productData.category;
   }
 
-  createCard() {
+  createCard(order) {
     const productCard = document
       .querySelector("#product-card")
       .content.cloneNode(true);
@@ -27,15 +25,9 @@ export default class Product {
     imageElement.alt = this._name;
 
     categoryElement.textContent = this._category;
-    buttonElement.addEventListener("click", addProduct);
+    buttonElement.addEventListener("click", order.addProduct.bind(order));
 
     const productList = document.querySelector(".products");
     productList.append(productCard);
   }
 }
-
-const products = JSON.parse(localStorage.getItem("products"));
-products.forEach((productData) => {
-  const product = new Product(productData);
-  product.createCard();
-});

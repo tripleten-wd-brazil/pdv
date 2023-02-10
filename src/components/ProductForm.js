@@ -1,9 +1,12 @@
 import Product from "./Product.js";
+import Alert from "./Alert.js";
 
 export default class ProductForm {
-  constructor() {
-    this._form = document.forms["form-product"];
+  constructor(formName, order) {
+    this._order = order;
+    this._form = document.forms[formName];
     this._setEventListeners();
+    this._enableValidation();
   }
 
   _toggleModal() {
@@ -18,101 +21,62 @@ export default class ProductForm {
 
   _setEventListeners() {
     const buttonOpenModal = document.querySelector("#open-product-modal");
-    buttonOpenModal.addEventListener("click", () => this._toggleModal());
+    buttonOpenModal.addEventListener("click", this._toggleModal.bind(this));
 
     const buttonCloseModal = document.querySelector("#close-product-modal");
-    buttonCloseModal.addEventListener("click", () => this._toggleModal());
-  }
-}
+    buttonCloseModal.addEventListener("click", this._toggleModal.bind(this));
 
-const productForm = document.forms["form-product"];
-
-productForm.addEventListener("submit", saveProduct);
-function saveProduct(evt) {
-  evt.preventDefault();
-  if (!productForm.checkValidity()) {
-    productForm.elements.button_submit.disabled = true;
-    return;
+    this._form.addEventListener("submit", this._saveProduct.bind(this));
   }
 
-  const { name, price, category, image } = productForm.elements;
-  const data = {
-    name: name.value,
-    image: image.value,
-    price: price.value,
-    category: category.value,
-  };
-  const product = new Product(data);
+  _saveProduct(evt) {
+    evt.preventDefault();
+    if (!this._form.checkValidity()) {
+      this._form.elements.button_submit.disabled = true;
+      return;
+    }
 
-  const products = JSON.parse(localStorage.getItem("products")) || [];
-  products.push(data);
-  localStorage.setItem("products", JSON.stringify(products));
+    const { name, price, category, image } = this._form.elements;
+    const data = {
+      name: name.value,
+      image: image.value,
+      price: price.value,
+      category: category.value,
+    };
+    const product = new Product(data);
 
-  product.createCard();
-  toggleProductModal();
-  productForm.reset();
-}
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    products.push(data);
+    localStorage.setItem("products", JSON.stringify(products));
 
-function validateInputState(event) {
-  const input = event.target;
-  const isInvalidInput = !input.checkValidity();
-  if (isInvalidInput) {
-    productForm.elements.button_submit.disabled = true;
-    input.classList.add("form__input_invalid");
-    return;
+    product.createCard(this._order);
+    this._toggleModal();
+    this._form.reset();
+    Alert.showProductAlert({ productName: data.name, type: "add" });
   }
 
-  input.classList.remove("form__input_invalid");
-  const isValidForm = productForm.checkValidity();
-  if (isValidForm) {
-    productForm.elements.button_submit.disabled = false;
-  }
-}
+  _enableValidation() {
+    const inputs = this._form.querySelectorAll(".form__input");
 
-function enableValidation(config) {
-  const inputs = document.querySelectorAll(".form__input");
-
-  inputs.forEach((input) => {
-    input.addEventListener("input", validateInputState);
-    input.addEventListener("blur", validateInputState);
-  });
-}
-
-enableValidation({});
-
-function showProductsAlert({ type, productName }) {
-  const types = {
-    add: { title: "PRODUTO ADICIONADO", action: "adicionado" },
-    edit: { title: "PRODUTO ALTERADO", action: "alterado" },
-    remove: { title: "PRODUTO EXCLUIDO", action: "excluído" },
-  };
-
-  // Lança um erro se o tipo for inválido
-  if (!Object.keys(types).includes(type)) {
-    throw new Error("Passed invalid type to showProductsAlert function");
-  }
-
-  const alertTemplate = document.querySelector("#alert-template");
-  const alertElement = alertTemplate.content.cloneNode(true);
-
-  const alertContainer = document.querySelector(".alert_container");
-
-  const alert = alertElement.querySelector(".alert");
-  const title = alertElement.querySelector(".alert__title");
-  const textProduct = alertElement.querySelector(".alert__text-product");
-  const textAction = alertElement.querySelector("#alert__text-action");
-
-  alert.classList.add(`alert_${type}`);
-  title.textContent = types[type].title;
-  textProduct.textContent = productName;
-  textAction.textContent = types[type].action;
-
-  alertContainer.append(alert);
-
-  setTimeout(() => {
-    alert.addEventListener("animationend", (evt) => {
-      alert.remove();
+    inputs.forEach((input) => {
+      input.addEventListener("input", this._validateInputState.bind(this));
+      input.addEventListener("blur", this._validateInputState.bind(this));
     });
-    alert.classList.add("hide_alert");
-  }, 2500);
+  }
+
+  _validateInputState(event) {
+    const input = event.target;
+    const isInvalidInput = !input.checkValidity();
+    if (isInvalidInput) {
+      this._form.elements.button_submit.disabled = true;
+      input.classList.add("form__input_invalid");
+      return;
+    }
+
+    input.classList.remove("form__input_invalid");
+    const isValidForm = this._form.checkValidity();
+    if (isValidForm) {
+      this._form.elements.button_submit.disabled = false;
+    }
+  }
 }
