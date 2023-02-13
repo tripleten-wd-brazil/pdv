@@ -130,25 +130,37 @@
     </main>
     <div class="modal modal_create-product">
       <article class="modal__container modal__container_product">
-        <header>
-          <h1>Novo Produto</h1>
-          <button id="close-product-modal">X</button>
+        <header class="modal__header">
+          <h1 class="modal__title">Novo Produto</h1>
+          <button id="close-product-modal" class="modal__close">
+            <img src="./images/close.svg" alt="Close modal" />
+          </button>
         </header>
         <main>
           <form name="form-product" class="form" novalidate>
             <div class="form__control">
               <label class="form__label" for="image">Imagem do Produto</label>
-              <input type="url" class="form__input" name="image" id="image" />
+              <span class="form__icon"></span
+              ><input
+                name="image"
+                id="image"
+                class="modal__input modal__input_image"
+                placeholder="Digite o link da imagem"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="name">Nome do Produto</label>
-              <input class="form__input" name="name" id="name" required />
-              <p class="form__error">Campo obrigatório</p>
+              <input
+                name="name"
+                id="name"
+                class="modal__input"
+                placeholder="Digite o nome do produto"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="price">Preço do Produto</label>
               <input
-                class="form__input"
+                class="modal__input"
                 type="number"
                 name="price"
                 id="price"
@@ -172,8 +184,7 @@
               </select>
             </div>
             <button
-              name="button_submit"
-              class="button button_type_success"
+              class="button button_type_success button_local_modal"
               disabled
             >
               Salvar Produto
