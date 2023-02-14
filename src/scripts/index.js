@@ -1,26 +1,59 @@
-const addProductToOrder = function (event) {
-  // Criar um item de vendas
-  const templateItem = document.querySelector("#template-item");
-  const item = templateItem.content.cloneNode(true);
+function currencyToNumber(currency) {
+  return Number(currency.replace("R$ ", "").replace(",", "."));
+}
 
+function numberToCurrency(number) {
+  return `R$ ${number.toFixed(2).replace(".", ",")}`;
+}
+
+function calculateTotal(value, productPrice) {
+  const newTotal =
+    currencyToNumber(value.textContent) +
+    currencyToNumber(productPrice.textContent);
+
+  return numberToCurrency(newTotal);
+}
+
+const addProductToOrder = function (event) {
   // Pegar o produto para resgatar as informações
   const productElement = event.target.closest(".product");
   const productName = productElement.querySelector(".product__name");
   const productPrice = productElement.querySelector(".product__price");
 
-  // Popular esse item com as informações do meu produto
-  const itemName = item.querySelector(".item__name");
-  const itemPrice = item.querySelector(".item__price");
-  const itemTotal = item.querySelector(".item__total");
-  itemName.textContent = productName.textContent;
-  itemPrice.textContent = productPrice.textContent;
-  itemTotal.textContent = productPrice.textContent;
-
-  // Pegar a listagem do pedido de vendas e adicionar o produto na lista
+  // Checar se já tem o produto na lista
+  // Pegar a listagem do pedido de vendas
   const order = document.querySelector(".order__list");
-  order.append(item);
+  const existentProducts = Array.from(order.querySelectorAll(".item__name"));
 
-  // Atualizar o total e o subtotal
+  const existentProduct = existentProducts.find(function (currentItem) {
+    return currentItem.textContent === productName.textContent;
+  });
+
+  if (existentProduct) {
+    // Para adicionar a quantidade no produto existente!!!!
+  } else {
+    // Criar um item de vendas
+    const templateItem = document.querySelector("#template-item");
+    const item = templateItem.content.cloneNode(true);
+
+    // Popular esse item com as informações do meu produto
+    const itemName = item.querySelector(".item__name");
+    const itemPrice = item.querySelector(".item__price");
+    const itemTotal = item.querySelector(".item__total");
+    itemName.textContent = productName.textContent;
+    itemPrice.textContent = productPrice.textContent;
+    itemTotal.textContent = productPrice.textContent;
+
+    // e adicionar o produto na lista
+    order.append(item);
+
+    // Atualizar o total e o subtotal
+    const orderTotal = document.querySelector(".order__total");
+    const orderSubTotal = document.querySelector(".order__subtotal");
+
+    orderTotal.textContent = calculateTotal(orderTotal, productPrice);
+    orderSubTotal.textContent = calculateTotal(orderSubTotal, productPrice);
+  }
 };
 
 const productButtons = document.querySelectorAll(".product__button");
