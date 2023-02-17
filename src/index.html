@@ -127,6 +127,7 @@
       >
         Resumo de vendas
       </button>
+      <button class="button button-teste">Teste</button>
     </main>
     <div class="modal modal_create-product">
       <article class="modal__container modal__container_product">
@@ -140,13 +141,17 @@
           <form name="form-product" class="form" novalidate>
             <div class="form__control">
               <label class="form__label" for="image">Imagem do Produto</label>
-              <span class="form__icon"></span
-              ><input
+              <span class="form__icon"></span>
+              <input
                 name="image"
                 id="image"
                 class="modal__input modal__input_image"
                 placeholder="Digite o link da imagem"
+                type="url"
               />
+              <p class="form__error">
+                Este campo precisa conter uma url para a imagem.
+              </p>
             </div>
             <div class="form__control">
               <label class="form__label" for="name">Nome do Produto</label>
@@ -155,7 +160,9 @@
                 id="name"
                 class="modal__input"
                 placeholder="Digite o nome do produto"
+                required
               />
+              <p class="form__error">Campo obrigatório</p>
             </div>
             <div class="form__control">
               <label class="form__label" for="price">Preço do Produto</label>
@@ -184,6 +191,7 @@
               </select>
             </div>
             <button
+              name="button_submit"
               class="button button_type_success button_local_modal"
               disabled
             >
@@ -192,6 +200,19 @@
           </form>
         </main>
       </article>
+    </div>
+    <div class="modal modal_delete-product">
+      <div class="modal__container">
+        <h2>Excluir Produto</h2>
+        <p>
+          Você tem certeza que deseja excluir o produto “Fulano de Tal”? Após
+          confirmar, esta ação não poderá ser desfeita.
+        </p>
+        <div>
+          <button class="button button_type_cancel">Cancelar</button>
+          <button class="button button_type_success">Excluir item</button>
+        </div>
+      </div>
     </div>
 
     <div class="alert_container"></div>

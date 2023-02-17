@@ -1,30 +1,33 @@
 import Product from "./Product.js";
 import Alert from "./Alert.js";
+import Modal from "./Modal.js";
 
-export default class ProductForm {
+export default class ProductForm extends Modal {
   constructor(formName, order) {
+    super(".modal_create-product", formName);
     this._order = order;
-    this._form = document.forms[formName];
-    this._setEventListeners();
     this._enableValidation();
   }
 
-  _toggleModal() {
-    const productModal = document.querySelector(".modal_create-product");
-    productModal.classList.toggle("modal_opened");
+  close() {
     Array.from(this._form.elements).forEach((input) => {
       input.classList.remove("form__input_invalid");
     });
     this._form.elements.button_submit.disabled = true;
+    this._form.reset();
+    super.close();
+  }
+
+  open() {
+    super.open();
     this._form.elements.image.focus();
   }
 
-  _setEventListeners() {
-    const buttonOpenModal = document.querySelector("#open-product-modal");
-    buttonOpenModal.addEventListener("click", this._toggleModal.bind(this));
-
+  setEventListeners(formName) {
+    this._form = document.forms[formName];
+    super.setEventListeners();
     const buttonCloseModal = document.querySelector("#close-product-modal");
-    buttonCloseModal.addEventListener("click", this._toggleModal.bind(this));
+    buttonCloseModal.addEventListener("click", this.close.bind(this));
 
     this._form.addEventListener("submit", this._saveProduct.bind(this));
   }
@@ -50,13 +53,13 @@ export default class ProductForm {
     localStorage.setItem("products", JSON.stringify(products));
 
     product.createCard(this._order);
-    this._toggleModal();
+    this.close();
     this._form.reset();
     Alert.showProductAlert({ productName: data.name, type: "add" });
   }
 
   _enableValidation() {
-    const inputs = this._form.querySelectorAll(".form__input");
+    const inputs = this._form.querySelectorAll(".modal__input");
 
     inputs.forEach((input) => {
       input.addEventListener("input", this._validateInputState.bind(this));
