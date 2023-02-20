@@ -1,4 +1,6 @@
 :root {
   --lightgrey: hsla(0, 0%, 67%, 1);
   --white: hsla(0, 0%, 100%, 1);
+  --background-modal: hsla(0, 0%, 68%, 0.5);
+  --box-shadow: hsla(0, 0%, 0%, 0.35);
 }

@@ -1,0 +1,16 @@
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-modal);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_opened {
+  display: flex;
+}
