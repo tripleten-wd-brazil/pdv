@@ -46,23 +46,35 @@
     </nav>
     <main>
       <section>
-        <ul>
+        <ul class="products">
+          <template id="product-card">
+            <li>
+              <article class="product">
+                <img class="product__image" alt="" />
+                <p class="product__price"></p>
+                <p class="product__name"></p>
+                <p class="product__category"></p>
+                <button class="product__button">Selecionar</button>
+              </article>
+            </li>
+          </template>
           <li>
             <article class="product">
               <p class="product__price">R$ 6,00</p>
               <p class="product__name">Coca Cola</p>
-              <button class="product__button">Selecionar Coca</button>
+              <button class="product__button">Selecionar</button>
             </article>
           </li>
           <li>
             <article class="product">
               <p class="product__price">R$ 5,00</p>
               <p class="product__name">Guaraná</p>
-              <button class="product__button">Selecionar Guaraná</button>
+              <button class="product__button">Selecionar</button>
             </article>
           </li>
         </ul>
       </section>
+      <button class="button button_add_item">Adicionar Item</button>
       <aside class="order">
         <h2>Resumo da Venda</h2>
         <p>José Costa</p>
@@ -94,6 +106,35 @@
         </div>
       </aside>
     </main>
+    <div class="modal modal_add_item">
+      <div class="modal__container">
+        <button class="button button_close_modal">X</button>
+        <form name="form_add_item" class="form form_add_item">
+          <div>
+            <label for="image">Imagem do Produto</label>
+            <input id="image" name="image" type="text" />
+          </div>
+          <div>
+            <label for="name">Nome do Produto</label>
+            <input id="name" name="name" type="text" />
+          </div>
+          <div>
+            <label for="price">Valor do Produto</label>
+            <input id="price" name="price" type="text" />
+          </div>
+          <div>
+            <label for="category">Categoria do Produto</label>
+            <select name="category" id="category">
+              <option value="Bebidas">Bebidas</option>
+              <option value="Doces">Doces</option>
+              <option value="Lanches">Lanches</option>
+            </select>
+          </div>
+          <button type="reset" class="button">Cancelar</button>
+          <button class="button button_submit">Salvar Produto</button>
+        </form>
+      </div>
+    </div>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
