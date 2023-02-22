@@ -1,7 +1,7 @@
-.menu__item {
+.button {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  cursor: pointer;
   background-color: transparent;
   border: none;
   padding: 0;
@@ -11,8 +11,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.menu__item:hover {
-  cursor: pointer;
+.button:hover {
   color: var(--white);
   fill: var(--white);
   stroke: var(--white);

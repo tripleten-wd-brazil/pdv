@@ -2,11 +2,6 @@
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.3;
-  color: var(--lightgrey);
-}
-
-.menu__paragraph:hover {
-  color: var(--white);
 }
 
 @media screen and (min-width: 655px) {
