@@ -1,4 +1,4 @@
-.button {
+.btn-menu {
   display: flex;
   gap: 1rem;
   cursor: pointer;
@@ -11,7 +11,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.button:hover {
+.btn-menu:hover {
   color: var(--white);
   fill: var(--white);
   stroke: var(--white);
