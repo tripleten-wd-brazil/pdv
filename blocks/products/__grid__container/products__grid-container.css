@@ -1,4 +1,20 @@
 .products__grid-container{
-    width: 60%;
-    height: 100%;
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.products__grid-container::-webkit-scrollbar {
+    width: .5em;
+}
+
+.products__grid-container::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 63%);
+    border-radius: 100vw
+}
+.products__grid-container::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 22%);
+    border: .15em solid hsl(0, 0%, 63%);
+    border-radius: 100vw
 }
