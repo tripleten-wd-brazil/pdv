@@ -1,0 +1,10 @@
+@import url("./blocks/main/main.css");
+
+@import url("./blocks/products/products.css");
+@import url("./blocks/products/__grid__container/products__grid-container.css");
+@import url("./blocks/products/__grid/products__grid.css");
+@import url("./blocks/products/__grid/__image/products__grid__image.css");
+@import url("./blocks/products/__grid/__item-name/products__grid__item-name.css");
+@import url("./blocks/products/__grid/__item/products__grid__item.css");
+@import url("./blocks/products/__grid/__price/products__grid__price.css");
+@import url("./blocks/products/__grid/__button/products__grid__button.css");

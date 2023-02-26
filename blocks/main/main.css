@@ -1,0 +1,11 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("./Inter/inter.ttf") format("truetype");}
+
+.main {
+  font-family: "inter",Arial, sans-serif;
+}
