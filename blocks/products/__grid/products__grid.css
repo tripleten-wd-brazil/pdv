@@ -1,0 +1,23 @@
+.products__grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
+  width: 80%;
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 1050px) {
+  .products__grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+  .products__grid{
+    grid-template-columns: 1fr;
+  }
+
+}
