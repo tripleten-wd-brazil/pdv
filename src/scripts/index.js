@@ -75,8 +75,11 @@ buttonCloseModal.addEventListener("click", toggleModal);
 
 formAddItem.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  // Object Destructuring
+  if (!formAddItem.checkValidity()) {
+    return;
+  }
 
+  // Object destructuring
   const { image, name, price, category } = formAddItem.elements;
   const card = document.querySelector("#product-card").content.cloneNode(true);
   const cardImage = card.querySelector(".product__image");
@@ -94,5 +97,21 @@ formAddItem.addEventListener("submit", (evt) => {
   const productList = document.querySelector(".products");
   productList.append(card);
   toggleModal();
+  resetForm();
+});
+
+const inputs = document.querySelectorAll(".form__control");
+
+function resetForm() {
   formAddItem.reset();
+  formAddItem.elements.submit.disabled = true;
+  inputs.forEach((input) => input.classList.remove("form__control_invalid"));
+}
+
+// objeto de configuração
+enableValidation({
+  formSelector: "form_add_item",
+  inputSelector: ".form__control",
+  submitButton: ".button_add_item",
+  errorClass: "form__control_invalid",
 });

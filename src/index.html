@@ -109,18 +109,34 @@
     <div class="modal modal_add_item">
       <div class="modal__container">
         <button class="button button_close_modal">X</button>
-        <form name="form_add_item" class="form form_add_item">
+        <form name="form_add_item" class="form form_add_item" novalidate>
           <div>
             <label for="image">Imagem do Produto</label>
-            <input id="image" name="image" type="text" />
+            <input class="form__control" id="image" name="image" type="url" />
+            <p class="error">Insira uma URL válida</p>
           </div>
           <div>
             <label for="name">Nome do Produto</label>
-            <input id="name" name="name" type="text" />
+            <input
+              class="form__control"
+              id="name"
+              name="name"
+              type="text"
+              minlength="2"
+              required
+            />
+            <p class="error">Campo obrigatório</p>
           </div>
           <div>
             <label for="price">Valor do Produto</label>
-            <input id="price" name="price" type="text" />
+            <input
+              class="form__control"
+              id="price"
+              name="price"
+              type="number"
+              required
+            />
+            <p class="error">Campo obrigatório</p>
           </div>
           <div>
             <label for="category">Categoria do Produto</label>
@@ -131,10 +147,13 @@
             </select>
           </div>
           <button type="reset" class="button">Cancelar</button>
-          <button class="button button_submit">Salvar Produto</button>
+          <button name="submit" class="button button_submit" disabled>
+            Salvar Produto
+          </button>
         </form>
       </div>
     </div>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
