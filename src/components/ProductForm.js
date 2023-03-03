@@ -3,9 +3,10 @@ import Alert from "./Alert.js";
 import Modal from "./Modal.js";
 
 export default class ProductForm extends Modal {
-  constructor(formName, order) {
+  constructor(formName, { order, api }) {
     super(".modal_create-product", formName);
     this._order = order;
+    this._api = api;
     this._enableValidation();
   }
 
@@ -46,16 +47,20 @@ export default class ProductForm extends Modal {
       price: price.value,
       category: category.value,
     };
-    const product = new Product(data);
 
-    const products = JSON.parse(localStorage.getItem("products")) || [];
-    products.push(data);
-    localStorage.setItem("products", JSON.stringify(products));
+    this._api
+      .create(data)
+      .then(() => {
+        const product = new Product(data);
+        product.createCard(this._order);
 
-    product.createCard(this._order);
-    this.close();
-    this._form.reset();
-    Alert.showProductAlert({ productName: data.name, type: "add" });
+        this._form.reset();
+        Alert.showProductAlert({ productName: data.name, type: "add" });
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        this.close();
+      });
   }
 
   _enableValidation() {
