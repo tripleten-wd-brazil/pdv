@@ -1,0 +1,57 @@
+.button {
+    background-color: var(--lightblue);
+    width: 116px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    padding: 8px 16px 8px 16px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.21rem;
+    
+}
+
+.button_add_item {
+    width: 160px;
+    height: 44px;
+    background-color: var(--green);
+    padding: 8px 16px 8px 16px;
+}
+
+.button_success {
+    background-color: var(--green);
+    width: 227px;
+    height: 35px;
+    border-radius: 8px;
+    color: var(--white);
+    border: none;
+    color: var(--white);
+    padding: 8px 16px 8px 16px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.21rem;
+
+}
+
+.button_edit_item {
+    background-color: var(--lightblue);
+    width: 160px;
+    height: 44px;
+}
+
+.button_danger {
+    background-color: var(--yellow);
+    color: var(--black);
+    font-family: 'inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+
+}
+
