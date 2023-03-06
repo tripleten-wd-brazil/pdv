@@ -110,8 +110,8 @@ function resetForm() {
 
 // objeto de configuração
 enableValidation({
-  formSelector: "form_add_item",
+  formName: "form_add_item",
   inputSelector: ".form__control",
-  submitButton: ".button_add_item",
+  submitButton: "submit",
   errorClass: "form__control_invalid",
 });

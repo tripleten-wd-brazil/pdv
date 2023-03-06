@@ -2,16 +2,15 @@
 function enableValidation(config) {
   const form = document.forms[config.formName];
   const inputs = document.querySelectorAll(config.inputSelector);
-  // form
-  // inputs
-  // button de disabled
-  // classe de erro
 
   inputs.forEach((input) => {
     input.addEventListener("input", (evt) => {
       validateInput(evt, form, config);
     });
-    input.addEventListener("blur", validateInput);
+
+    input.addEventListener("blur", (evt) => {
+      validateInput(evt, form, config);
+    });
   });
 }
 
