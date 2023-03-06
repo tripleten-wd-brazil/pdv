@@ -1,0 +1,11 @@
+.products__sale-summary__item__interaction__remove {
+  background-image: url("/images/products/remove-button.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  margin-top: 5px;
+  cursor: pointer;
+}

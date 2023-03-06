@@ -1,4 +1,9 @@
 .products {
   display: flex;
   overflow: hidden;
+  padding-top: 23px;
+  max-width: 1440px;
+  margin-inline: auto;
+  height: 100vh;
+  position: relative;
 }

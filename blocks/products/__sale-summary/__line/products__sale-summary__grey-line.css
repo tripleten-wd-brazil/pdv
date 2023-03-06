@@ -1,0 +1,7 @@
+.products__sale-summary__grey-line{
+    width: 90%;
+    height: 1px;
+    background: hsl(0, 0%, 12%);
+    margin-inline: auto;
+    
+}

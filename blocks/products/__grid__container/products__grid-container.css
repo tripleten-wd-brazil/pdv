@@ -1,6 +1,6 @@
 .products__grid-container{
-    width: 800px;
-    height: 800px;
+    height: 100%;
+    width: 60%;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -11,10 +11,18 @@
 
 .products__grid-container::-webkit-scrollbar-track {
     background: hsl(0, 0%, 63%);
-    border-radius: 100vw
+    border-radius: 100vw;
 }
 .products__grid-container::-webkit-scrollbar-thumb {
     background: hsl(0, 0%, 22%);
     border: .15em solid hsl(0, 0%, 63%);
-    border-radius: 100vw
+    border-radius: 100vw;
 }
+
+@media screen and (max-width: 850px ){
+    .products__grid-container{
+     width: 90%;
+     margin: 0 auto;
+    }
+     
+ }

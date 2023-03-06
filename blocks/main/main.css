@@ -4,8 +4,9 @@
 
 @font-face {
   font-family: "inter";
-  src: url("./Inter/inter.ttf") format("truetype");}
+  src: url("../../Inter/inter.ttf") format("truetype");}
 
 .main {
   font-family: "inter",Arial, sans-serif;
+  background-color: goldenrod;
 }

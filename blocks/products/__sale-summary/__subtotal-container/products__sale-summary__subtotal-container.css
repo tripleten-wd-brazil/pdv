@@ -1,0 +1,6 @@
+.products__sale-summary__subtotal-container{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-inline: auto;
+}

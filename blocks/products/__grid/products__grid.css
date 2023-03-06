@@ -4,7 +4,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 64px;
-  width: 80%;
+  width: 95%;
+  height: 80%;
+  max-width: 620px; 
   margin-inline: auto;
 }
 
@@ -15,7 +17,7 @@
 
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 620px) {
   .products__grid{
     grid-template-columns: 1fr;
   }

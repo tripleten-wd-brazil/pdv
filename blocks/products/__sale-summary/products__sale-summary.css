@@ -1,0 +1,26 @@
+.products__sale-summary{
+    display: flex;
+    flex-direction: column;
+    max-width: 367px;
+    max-height: 717px;
+    width: 100%;
+    margin-top: 105px;
+    background: var(--white);
+    border-radius: 10px;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1050px ){
+   .products__sale-summary{
+    max-width: 320px;
+   }
+    
+}
+
+@media screen and (max-width: 850px ){
+    .products__sale-summary{
+     display: none;
+    }
+     
+ }

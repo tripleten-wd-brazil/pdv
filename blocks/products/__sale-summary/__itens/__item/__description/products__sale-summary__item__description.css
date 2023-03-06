@@ -1,0 +1,6 @@
+.products__sale-summary__item__description{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}

@@ -1,0 +1,6 @@
+.products__sale-summary__bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 40%;
+}

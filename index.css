@@ -8,3 +8,25 @@
 @import url("./blocks/products/__grid/__item/products__grid__item.css");
 @import url("./blocks/products/__grid/__price/products__grid__price.css");
 @import url("./blocks/products/__grid/__button/products__grid__button.css");
+
+@import url("./blocks/products/__sale-summary/products__sale-summary.css");
+@import url("./blocks/products/__sale-summary/__bottom/products__sale-summary__bottom.css");
+@import url("./blocks/products/__sale-summary/__text/products__sale-summary__text.css");
+@import url("./blocks/products/__sale-summary/__description/products__sale-summary__description.css");
+@import url("./blocks/products/__sale-summary/__header/products__sale-summary__header.css");
+@import url("./blocks/products/__sale-summary/__line/products__sale-summary__grey-line.css");
+
+@import url("./blocks/products/__sale-summary/__itens/produtcs__sale-summary__itens.css");
+@import url("./blocks/products/__sale-summary/__itens/__item/products__sale-summary__item.css");
+
+@import url("./blocks/products/__sale-summary/__itens/__item/__interaction/products__sale-summary__item__interaction.css");
+@import url("./blocks/products/__sale-summary/__itens/__item/__interaction/__add/products__sale-summary__item__interaction__add.css");
+@import url("./blocks/products/__sale-summary/__itens/__item/__interaction/__remove/products__sale-summary__item__interaction__remove.css");
+
+@import url("./blocks/products/__sale-summary/__subtotal-container/products__sale-summary__subtotal-container.css");
+
+@import url("./blocks/products/__sale-summary/_total/products__sale-summary__total.css");
+
+@import url("./blocks/products/__sale-summary/__submit/products__sale-summary__submit.css");
+
+@import url("./blocks/products/__sale-summary/__open__button/products__sale-summary__open-button.css");

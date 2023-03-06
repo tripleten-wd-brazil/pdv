@@ -1,0 +1,19 @@
+.products__sale-summary__submit{
+    width: 75%;
+    background: hsl(126, 83%, 35%);
+    margin-inline: auto;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 80px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.products__sale-summary__submit:hover{
+    background: hsl(126, 100%, 23%);
+
+}

@@ -1,0 +1,11 @@
+.products__sale-summary__item__interaction__add{
+    background-image: url("/images/products/add-button.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    height: 16px;
+    width: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+  }

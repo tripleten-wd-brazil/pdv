@@ -1,0 +1,5 @@
+.products__sale-summary__item__interaction{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}

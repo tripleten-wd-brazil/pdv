@@ -1,0 +1,8 @@
+.products__sale-summary__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-inline: auto;
+    height: 100%;
+}

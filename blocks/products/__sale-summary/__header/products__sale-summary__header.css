@@ -1,0 +1,11 @@
+.products__sale-summary__header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 32px;
+    padding-bottom: 10px;
+    flex-direction: column;
+    width: 90%;
+    margin-inline: auto;
+    gap: 10px;  
+
+}
