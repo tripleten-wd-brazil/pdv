@@ -15,8 +15,12 @@ function enableValidation(config) {
 }
 
 function validateInput(evt, form, config) {
+  const errorElement = evt.target.nextElementSibling;
+  const errorMessage = getErrorMessage(evt);
+
   if (!evt.target.checkValidity()) {
     form.elements[config.submitButton].disabled = true;
+    errorElement.textContent = errorMessage;
     evt.target.classList.add(config.errorClass);
     return;
   }
@@ -25,4 +29,12 @@ function validateInput(evt, form, config) {
   if (form.checkValidity()) {
     form.elements[config.submitButton].disabled = false;
   }
+}
+
+function getErrorMessage(evt) {
+  if (evt.target.validity.valueMissing) {
+    return "Campo obrigatório";
+  }
+
+  return "Valor inválido.";
 }
