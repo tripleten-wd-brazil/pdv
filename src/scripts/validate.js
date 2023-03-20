@@ -1,5 +1,5 @@
 // objeto como parâmetro
-function enableValidation(config) {
+export function enableValidation(config) {
   const form = document.forms[config.formName];
   const inputs = document.querySelectorAll(config.inputSelector);
 
@@ -38,3 +38,5 @@ function getErrorMessage(evt) {
 
   return "Valor inválido.";
 }
+
+export default enableValidation;

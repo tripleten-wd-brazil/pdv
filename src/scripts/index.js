@@ -1,10 +1,6 @@
-function currencyToNumber(currency) {
-  return Number(currency.replace("R$ ", "").replace(",", "."));
-}
-
-function numberToCurrency(number) {
-  return `R$ ${number.toFixed(2).replace(".", ",")}`;
-}
+import { currencyToNumber, numberToCurrency } from "../components/currency.js";
+import { enableValidation } from "./validate.js";
+import ProductModal from "../components/ProductModal.js";
 
 function calculateTotal(value, productPrice) {
   const newTotal =
@@ -62,51 +58,10 @@ for (let button of productButtons) {
   button.addEventListener("click", addProductToOrder);
 }
 
-const formAddItem = document.forms.form_add_item;
-function toggleModal() {
-  modalAddItem.classList.toggle("modal_opened");
-}
+const productModal = new ProductModal();
 
-const modalAddItem = document.querySelector(".modal_add_item");
 const buttonAddItem = document.querySelector(".button_add_item");
-const buttonCloseModal = document.querySelector(".button_close_modal");
-buttonAddItem.addEventListener("click", toggleModal);
-buttonCloseModal.addEventListener("click", toggleModal);
-
-formAddItem.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  if (!formAddItem.checkValidity()) {
-    return;
-  }
-
-  // Object destructuring
-  const { image, name, price, category } = formAddItem.elements;
-  const card = document.querySelector("#product-card").content.cloneNode(true);
-  const cardImage = card.querySelector(".product__image");
-  const cardName = card.querySelector(".product__name");
-  const cardPrice = card.querySelector(".product__price");
-  const cardCategory = card.querySelector(".product__category");
-
-  cardImage.src = image.value;
-  cardImage.alt = name.value;
-
-  cardName.textContent = name.value;
-  cardPrice.textContent = price.value;
-  cardCategory.textContent = category.value;
-
-  const productList = document.querySelector(".products");
-  productList.append(card);
-  toggleModal();
-  resetForm();
-});
-
-const inputs = document.querySelectorAll(".form__control");
-
-function resetForm() {
-  formAddItem.reset();
-  formAddItem.elements.submit.disabled = true;
-  inputs.forEach((input) => input.classList.remove("form__control_invalid"));
-}
+buttonAddItem.addEventListener("click", () => productModal.toggle());
 
 // objeto de configuração
 enableValidation({
