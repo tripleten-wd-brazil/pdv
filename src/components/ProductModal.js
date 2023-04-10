@@ -1,18 +1,16 @@
-export default class ProductModal {
+import Modal from "./Modal.js";
+
+export default class ProductModal extends Modal {
   constructor() {
-    this._modal = document.querySelector(".modal_add_item");
+    super(".modal_add_item");
     this._buttonClose = document.querySelector(".button_close_modal");
     this._form = document.forms.form_add_item;
     this._setEventListeners();
   }
 
   _setEventListeners() {
-    this._buttonClose.addEventListener("click", () => this.toggle());
+    this._buttonClose.addEventListener("click", this.close.bind(this));
     this._form.addEventListener("submit", (evt) => this._save(evt));
-  }
-
-  toggle() {
-    this._modal.classList.toggle("modal_opened");
   }
 
   _save(evt) {
@@ -42,7 +40,7 @@ export default class ProductModal {
 
     const productList = document.querySelector(".products");
     productList.append(card);
-    this.toggle();
+    this.close();
     this._reset();
   }
 

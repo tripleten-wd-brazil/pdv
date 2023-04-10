@@ -61,7 +61,7 @@ for (let button of productButtons) {
 const productModal = new ProductModal();
 
 const buttonAddItem = document.querySelector(".button_add_item");
-buttonAddItem.addEventListener("click", () => productModal.toggle());
+buttonAddItem.addEventListener("click", () => productModal.open());
 
 // objeto de configuração
 enableValidation({
