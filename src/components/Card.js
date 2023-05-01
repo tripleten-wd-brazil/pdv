@@ -5,18 +5,28 @@ export default class Card {
     this._category = category;
     this._image = image;
   }
+
+  getTemplate(addOrderFunction) {
+    const card = document
+      .querySelector("#product-card")
+      .content.cloneNode(true);
+
+    const cardImage = card.querySelector(".product__image");
+    const cardName = card.querySelector(".product__name");
+    const cardPrice = card.querySelector(".product__price");
+    const cardCategory = card.querySelector(".product__category");
+    const cardButton = card.querySelector(".product__button");
+    cardButton.addEventListener("click", addOrderFunction);
+
+    cardImage.src = this._image;
+    cardImage.alt = this._name;
+
+    cardName.textContent = this._name;
+    cardPrice.textContent = this._price;
+    cardCategory.textContent = this._category;
+
+    return card;
+  }
+
+  _setEventListeners() {}
 }
-
-const card = document.querySelector("#product-card").content.cloneNode(true);
-
-const cardImage = card.querySelector(".product__image");
-const cardName = card.querySelector(".product__name");
-const cardPrice = card.querySelector(".product__price");
-const cardCategory = card.querySelector(".product__category");
-
-cardImage.src = image.value;
-cardImage.alt = name.value;
-
-cardName.textContent = name.value;
-cardPrice.textContent = price.value;
-cardCategory.textContent = category.value;

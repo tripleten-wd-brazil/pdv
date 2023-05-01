@@ -1,6 +1,8 @@
 import { currencyToNumber, numberToCurrency } from "../components/currency.js";
 import { enableValidation } from "./validate.js";
 import ProductModal from "../components/ProductModal.js";
+import ProductApi from "../api/ProductApi.js";
+import Card from "../components/Card.js";
 
 function calculateTotal(value, productPrice) {
   const newTotal =
@@ -70,3 +72,14 @@ enableValidation({
   submitButton: "submit",
   errorClass: "form__control_invalid",
 });
+
+// IIFE - Immediately Invoked Function Expression
+(async function () {
+  const productList = document.querySelector(".products");
+  const productApi = new ProductApi();
+  const products = await productApi.list();
+  products.forEach((product) => {
+    const productCard = new Card(product);
+    productList.append(productCard.getTemplate(addProductToOrder));
+  });
+})();
