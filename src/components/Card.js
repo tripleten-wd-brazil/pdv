@@ -1,9 +1,10 @@
 export default class Card {
-  constructor({ name, price, category, image }) {
+  constructor({ name, price, category, image, id }) {
     this._name = name;
     this._price = price;
     this._category = category;
     this._image = image;
+    this._id = id;
   }
 
   getTemplate(addOrderFunction) {

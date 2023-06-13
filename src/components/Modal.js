@@ -11,6 +11,7 @@ export default class Modal {
   }
 
   open() {
+    console.log(">>>>. oieeeee");
     this._modal.classList.add("modal_opened");
     document.addEventListener("keydown", this._handleEscButton);
   }

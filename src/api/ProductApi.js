@@ -14,4 +14,19 @@ export default class ProductApi {
       })
       .catch((error) => error);
   }
+
+  async create(product) {
+    const response = await fetch(this._baseUrl, {
+      method: "POST",
+      body: JSON.stringify(product),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      return response.json();
+    }
+
+    throw new Error("Network response was not ok.");
+  }
 }

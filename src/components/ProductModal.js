@@ -1,10 +1,14 @@
 import Modal from "./Modal.js";
+import Card from "./Card.js";
+import ProductApi from "../api/ProductApi.js";
 
 export default class ProductModal extends Modal {
-  constructor() {
+  constructor(addOrderFunction) {
     super(".modal_add_item");
     this._buttonClose = document.querySelector(".button_close_modal");
     this._form = document.forms.form_add_item;
+    this._addOrderFunction = addOrderFunction;
+    this._productApi = new ProductApi();
     this._setEventListeners();
   }
 
@@ -13,7 +17,7 @@ export default class ProductModal extends Modal {
     this._form.addEventListener("submit", (evt) => this._save(evt));
   }
 
-  _save(evt) {
+  async _save(evt) {
     evt.preventDefault();
     if (!this._form.checkValidity()) {
       return;
@@ -21,25 +25,18 @@ export default class ProductModal extends Modal {
 
     // Object destructuring
     const { image, name, price, category } = this._form.elements;
+    const productData = {
+      name: name.value,
+      price: price.value,
+      category: category.value,
+    };
 
-    const card = document
-      .querySelector("#product-card")
-      .content.cloneNode(true);
-
-    const cardImage = card.querySelector(".product__image");
-    const cardName = card.querySelector(".product__name");
-    const cardPrice = card.querySelector(".product__price");
-    const cardCategory = card.querySelector(".product__category");
-
-    cardImage.src = image.value;
-    cardImage.alt = name.value;
-
-    cardName.textContent = name.value;
-    cardPrice.textContent = price.value;
-    cardCategory.textContent = category.value;
+    const savedProduct = await this._productApi.create(productData);
+    const { _id: id } = savedProduct;
+    const card = new Card({ ...productData, image: image.value, id });
 
     const productList = document.querySelector(".products");
-    productList.append(card);
+    productList.append(card.getTemplate(this._addOrderFunction));
     this.close();
     this._reset();
   }

@@ -60,7 +60,7 @@ for (let button of productButtons) {
   button.addEventListener("click", addProductToOrder);
 }
 
-const productModal = new ProductModal();
+const productModal = new ProductModal(addProductToOrder);
 
 const buttonAddItem = document.querySelector(".button_add_item");
 buttonAddItem.addEventListener("click", () => productModal.open());
