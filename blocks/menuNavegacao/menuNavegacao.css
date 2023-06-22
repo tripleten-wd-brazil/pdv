@@ -1,0 +1,46 @@
+.menuNavegacao {
+  display: flex;
+  justify-content: space-between;
+  max-width: 501px;
+  max-height: 40px;
+}
+
+.menuNavegacao__item {
+  height: 32px;
+  transition: all 0.3s ease;
+}
+
+.menuNavegacao__item:hover {
+  transform: scale(1.2);
+}
+
+.menuNavegacao__item:hover path {
+  fill: #ffffff;
+}
+
+.menuNavegacao__item:nth-child(2):hover path {
+  fill: transparent;
+  stroke: #ffffff;
+}
+
+.menuNavegacao__item:hover .menuNavegacao__link {
+  color: #ffffff;
+}
+
+.menuNavegacao__item:hover .menuNavegacao__icone {
+  color: #ffffff;
+}
+
+.menuNavegacao__link {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  color: #ababab;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.menuNavegacao__icone {
+  padding-right: 16px;
+}

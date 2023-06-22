@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.page {
+  width: 100%;
+  height: 1024px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 42, 52, 1),
+    rgba(80, 138, 156, 0.2)
+  );
+}
+
+.page__linha {
+  border-top: 1px solid #ababab;
+  max-width: 712px;
+  margin-left: 80px;
+}
