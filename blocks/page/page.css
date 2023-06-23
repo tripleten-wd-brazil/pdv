@@ -11,7 +11,10 @@ a {
   text-decoration: none;
 }
 .page {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  min-width: 360px;
   height: 1024px;
   background: linear-gradient(
     to bottom,
@@ -22,6 +25,13 @@ a {
 
 .page__linha {
   border-top: 1px solid #ababab;
-  max-width: 712px;
+  max-width: 750px;
   margin-left: 80px;
+}
+
+@media screen and (max-width: 800px) {
+  .page__linha {
+    width: 85%;
+    margin: 0 auto;
+  }
 }

@@ -44,3 +44,6 @@
 .menuNavegacao__icone {
   padding-right: 16px;
 }
+
+@media screen and (max-width: 725px) {
+}
