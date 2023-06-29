@@ -11,27 +11,11 @@ a {
   text-decoration: none;
 }
 .page {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  min-width: 360px;
-  height: 1024px;
+  height: 100vh;
   background: linear-gradient(
     to bottom,
     rgba(10, 42, 52, 1),
     rgba(80, 138, 156, 0.2)
   );
-}
-
-.page__linha {
-  border-top: 1px solid #ababab;
-  max-width: 750px;
-  margin-left: 80px;
-}
-
-@media screen and (max-width: 800px) {
-  .page__linha {
-    width: 85%;
-    margin: 0 auto;
-  }
 }
