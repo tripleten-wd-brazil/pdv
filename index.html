@@ -95,6 +95,33 @@
           </li>
         </ul>
       </nav>
+      <ul>
+        <li class="product">
+          <p class="product__price">R$ 6,00</p>
+          <p class="product__name">Coca cola</p>
+        </li>
+      </ul>
+      <button class="button button_add_product">Adicionar Item</button>
+      <div class="popup">
+        <div class="popup__container">
+          <h2>Novo Produto</h2>
+          <button class="popup__close-button">
+            <img src="./images/close.svg" alt="Botão de fechar o popup" />
+          </button>
+          <form class="form">
+            <div>
+              <label for="name">Nome do Produto</label>
+              <input class="form__name" id="name" value="Coca-cola" />
+            </div>
+            <div>
+              <label for="price">Valor do Produto</label>
+              <input id="price" class="form__price" value="R$ 6,00" />
+            </div>
+            <button type="submit">Salvar Produto</button>
+          </form>
+        </div>
+      </div>
     </div>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

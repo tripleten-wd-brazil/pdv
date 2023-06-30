@@ -1,0 +1,21 @@
+.popup {
+  background-color: rgba(172, 172, 172, 0.5);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  inset: 0;
+  display: none;
+}
+
+.popup_opened {
+  display: flex;
+}
+
+.popup__container {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.35);
+  padding: 32px 24px;
+  width: 100%;
+  max-width: 314px;
+  margin: auto;
+}
