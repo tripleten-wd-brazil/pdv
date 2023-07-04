@@ -95,11 +95,14 @@
           </li>
         </ul>
       </nav>
-      <ul>
-        <li class="product">
-          <p class="product__price">R$ 6,00</p>
-          <p class="product__name">Coca cola</p>
-        </li>
+      <ul class="products">
+        <template id="product-template">
+          <li class="product">
+            <img class="product__image" src="" alt="" />
+            <p class="product__price"></p>
+            <p class="product__name"></p>
+          </li>
+        </template>
       </ul>
       <button class="button button_add_product">Adicionar Item</button>
       <div class="popup">
@@ -110,12 +113,16 @@
           </button>
           <form class="form">
             <div>
+              <label for="imageUrl">Imagem do Produto</label>
+              <input id="imageUrl" class="form__imageUrl" />
+            </div>
+            <div>
               <label for="name">Nome do Produto</label>
-              <input class="form__name" id="name" value="Coca-cola" />
+              <input class="form__name" id="name" />
             </div>
             <div>
               <label for="price">Valor do Produto</label>
-              <input id="price" class="form__price" value="R$ 6,00" />
+              <input id="price" class="form__price" />
             </div>
             <button type="submit">Salvar Produto</button>
           </form>
