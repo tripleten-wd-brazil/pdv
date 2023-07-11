@@ -95,17 +95,53 @@
           </li>
         </ul>
       </nav>
-      <ul class="products">
-        <template id="product-template">
-          <li class="product">
-            <img class="product__image" src="" alt="" />
-            <p class="product__price"></p>
-            <p class="product__name"></p>
-          </li>
-        </template>
-      </ul>
-      <button class="button button_add_product">Adicionar Item</button>
-      <div class="popup">
+      <main class="main">
+        <ul class="products">
+          <template id="product-template">
+            <li class="product">
+              <img class="product__image" src="" alt="" />
+              <p class="product__price"></p>
+              <p class="product__name"></p>
+              <button class="product__button">Selecionar</button>
+            </li>
+          </template>
+        </ul>
+        <aside>
+          <button class="button button_add_product">Adicionar Item</button>
+          <article class="order">
+            <header>
+              <h2>Resumo da Venda</h2>
+              <p>José Costa</p>
+            </header>
+            <ul class="order__list">
+              <template id="item-template">
+                <li class="item">
+                  <div>
+                    <p class="item__name"></p>
+                    <p class="item__price"></p>
+                  </div>
+                  <div>
+                    <button>-</button>
+                  </div>
+                  <span class="item__quantity">1</span>
+                  <div>
+                    <button>+</button>
+                  </div>
+                  <p class="item__total"></p>
+                </li>
+                </li>
+              </template>
+            </ul>
+            <footer>
+              <p>Sub total</p>
+              <p class="order__subtotal">R$ 0,00</p>
+              <p>Total</p>
+              <p class="order__total">R$ 0,00</p>
+            </footer>
+          </article>
+        </aside>
+      </main>
+      <div class="popup popup_form_product">
         <div class="popup__container">
           <h2>Novo Produto</h2>
           <button class="popup__close-button">
@@ -127,6 +163,12 @@
             <button type="submit">Salvar Produto</button>
           </form>
         </div>
+      </div>
+      <div class="popup popup_image">
+        <button class="popup__close-button">
+          <img src="./images/close.svg" alt="Botão de fechar o popup" />
+        </button>
+        <img src="" alt="" class="popup__image">
       </div>
     </div>
     <script src="./scripts/index.js"></script>

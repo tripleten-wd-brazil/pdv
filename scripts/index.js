@@ -3,18 +3,69 @@ const buttonAddProduct = document.querySelector(".button_add_product");
 // Ao clicar no botão de adicionar item
 
 // função de callback
-const popup = document.querySelector(".popup");
-function openPopup() {
+const popupFormProduct = document.querySelector(".popup_form_product");
+function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
 // Abre o popup
-buttonAddProduct.addEventListener("click", openPopup);
+buttonAddProduct.addEventListener("click", function () {
+  openPopup(popupFormProduct);
+});
 
 function closePopup() {
-  popup.classList.remove("popup_opened");
+  const popups = document.querySelectorAll(".popup");
+  popups.forEach(function (popup) {
+    popup.classList.remove("popup_opened");
+  });
 }
-const buttonClosePopup = document.querySelector(".popup__close-button");
-buttonClosePopup.addEventListener("click", closePopup);
+const buttonsClosePopup = document.querySelectorAll(".popup__close-button");
+buttonsClosePopup.forEach(function (buttonClosePopup) {
+  buttonClosePopup.addEventListener("click", function () {
+    closePopup();
+  });
+});
+
+function getAllItemsPrice() {}
+
+function addProductToOrder(event) {
+  const itemTemplate = document.querySelector("#item-template");
+  const itemElement = itemTemplate.content.cloneNode(true);
+
+  const targetedProduct = event.target.closest(".product");
+  const productNameElement = targetedProduct.querySelector(".product__name");
+  const productPriceElement = targetedProduct.querySelector(".product__price");
+
+  const itemNameElement = itemElement.querySelector(".item__name");
+  const itemPriceElement = itemElement.querySelector(".item__price");
+  const itemTotalElement = itemElement.querySelector(".item__total");
+
+  itemNameElement.textContent = productNameElement.textContent;
+  itemPriceElement.textContent = productPriceElement.textContent;
+  itemTotalElement.textContent = productPriceElement.textContent;
+
+  // Como atualizar o subtotal e total do pedido????
+
+  // Popular o array de items??
+
+  const items = [];
+  let precoTotal = 0;
+  items.forEach(function (item) {
+    precoTotal += item.preco;
+  });
+
+  // Dever de casa!!!!
+
+  const itemList = document.querySelector(".order__list");
+  itemList.append(itemElement);
+}
+
+const popupImage = document.querySelector(".popup_image");
+function handleImageClick(event) {
+  const popupImageElement = document.querySelector(".popup__image");
+  popupImageElement.src = event.target.src;
+  popupImageElement.alt = event.target.alt;
+  openPopup(popupImage);
+}
 
 function createProduct(product) {
   const productTemplate = document.querySelector("#product-template");
@@ -23,6 +74,9 @@ function createProduct(product) {
   const nameElement = productElement.querySelector(".product__name");
   const priceElement = productElement.querySelector(".product__price");
   const imageElement = productElement.querySelector(".product__image");
+  const buttonElement = productElement.querySelector(".product__button");
+  buttonElement.addEventListener("click", addProductToOrder);
+  imageElement.addEventListener("click", handleImageClick);
 
   nameElement.textContent = product.name;
   priceElement.textContent = product.price;
