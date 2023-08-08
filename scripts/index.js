@@ -2,30 +2,45 @@
 const buttonAddProduct = document.querySelector(".button_add_product");
 // Ao clicar no botão de adicionar item
 
+const closePopupWithEsc = function(event) {
+  if (event.key === "Escape") {
+    closePopup();
+  }
+}
+
 // função de callback
 const popupFormProduct = document.querySelector(".popup_form_product");
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  popup.addEventListener("click", function(event) {
+    if (event.target.classList.contains("popup")) {
+      closePopup();
+    }
+  });
+  document.addEventListener("keydown", closePopupWithEsc);
 }
 // Abre o popup
-buttonAddProduct.addEventListener("click", function () {
+buttonAddProduct.addEventListener("click", function() {
   openPopup(popupFormProduct);
 });
 
 function closePopup() {
+  document.removeEventListener("keydown", closePopupWithEsc)
   const popups = document.querySelectorAll(".popup");
-  popups.forEach(function (popup) {
+  popups.forEach(function(popup) {
     popup.classList.remove("popup_opened");
   });
 }
 const buttonsClosePopup = document.querySelectorAll(".popup__close-button");
-buttonsClosePopup.forEach(function (buttonClosePopup) {
-  buttonClosePopup.addEventListener("click", function () {
+buttonsClosePopup.forEach(function(buttonClosePopup) {
+  buttonClosePopup.addEventListener("click", function() {
     closePopup();
   });
 });
 
-function getAllItemsPrice() {}
+
+
+function getAllItemsPrice() { }
 
 function addProductToOrder(event) {
   const itemTemplate = document.querySelector("#item-template");
@@ -49,7 +64,7 @@ function addProductToOrder(event) {
 
   const items = [];
   let precoTotal = 0;
-  items.forEach(function (item) {
+  items.forEach(function(item) {
     precoTotal += item.preco;
   });
 
@@ -88,7 +103,7 @@ function createProduct(product) {
 }
 
 const form = document.querySelector(".form");
-form.addEventListener("submit", function (evt) {
+form.addEventListener("submit", function(evt) {
   evt.preventDefault();
   const inputName = document.querySelector(".form__name");
   const inputPrice = document.querySelector(".form__price");

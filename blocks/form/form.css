@@ -1,0 +1,18 @@
+.form {
+  display: grid;
+  gap: 24px;
+}
+
+.form__input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__error {
+  color: firebrick;
+  display: none;
+}
+
+.form__error_active {
+  display: block;
+}
