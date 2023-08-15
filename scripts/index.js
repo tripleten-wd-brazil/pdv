@@ -1,3 +1,7 @@
+import Card from "../components/Card.js"
+import FormValidator from "../components/FormValidator.js"
+
+
 // Pegar o botão no HTML
 const buttonAddProduct = document.querySelector(".button_add_product");
 // Ao clicar no botão de adicionar item
@@ -42,38 +46,6 @@ buttonsClosePopup.forEach(function(buttonClosePopup) {
 
 function getAllItemsPrice() { }
 
-function addProductToOrder(event) {
-  const itemTemplate = document.querySelector("#item-template");
-  const itemElement = itemTemplate.content.cloneNode(true);
-
-  const targetedProduct = event.target.closest(".product");
-  const productNameElement = targetedProduct.querySelector(".product__name");
-  const productPriceElement = targetedProduct.querySelector(".product__price");
-
-  const itemNameElement = itemElement.querySelector(".item__name");
-  const itemPriceElement = itemElement.querySelector(".item__price");
-  const itemTotalElement = itemElement.querySelector(".item__total");
-
-  itemNameElement.textContent = productNameElement.textContent;
-  itemPriceElement.textContent = productPriceElement.textContent;
-  itemTotalElement.textContent = productPriceElement.textContent;
-
-  // Como atualizar o subtotal e total do pedido????
-
-  // Popular o array de items??
-
-  const items = [];
-  let precoTotal = 0;
-  items.forEach(function(item) {
-    precoTotal += item.preco;
-  });
-
-  // Dever de casa!!!!
-
-  const itemList = document.querySelector(".order__list");
-  itemList.append(itemElement);
-}
-
 const popupImage = document.querySelector(".popup_image");
 function handleImageClick(event) {
   const popupImageElement = document.querySelector(".popup__image");
@@ -83,21 +55,10 @@ function handleImageClick(event) {
 }
 
 function createProduct(product) {
-  const productTemplate = document.querySelector("#product-template");
-  const productElement = productTemplate.content.cloneNode(true);
-
-  const nameElement = productElement.querySelector(".product__name");
-  const priceElement = productElement.querySelector(".product__price");
-  const imageElement = productElement.querySelector(".product__image");
-  const buttonElement = productElement.querySelector(".product__button");
-  buttonElement.addEventListener("click", addProductToOrder);
-  imageElement.addEventListener("click", handleImageClick);
-
-  nameElement.textContent = product.name;
-  priceElement.textContent = product.price;
-  imageElement.src = product.imageUrl;
-  imageElement.alt = product.name;
-
+  const card = new Card(product, "#product-template")
+  const productElement = card.generateCard();
+  // const imageElement = this._element.querySelector(".product__image");
+  // imageElement.addEventListener("click", handleImageClick);
   const productList = document.querySelector(".products");
   productList.append(productElement);
 }
@@ -140,3 +101,16 @@ const initialProducts = [
 ];
 
 initialProducts.forEach(createProduct);
+
+
+const config = {
+  inputSelector: ".form__input",
+  errorSelector: ".form__error",
+  inputContainerSelector: ".form__input-container",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "form__error_active",
+  errorClass: "popup__error_visible"
+}
+const formValidator = new FormValidator(config, form);
+formValidator.enableValidation();
