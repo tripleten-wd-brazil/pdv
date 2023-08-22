@@ -1,7 +1,7 @@
 import Card from "../components/Card.js"
 import FormValidator from "../components/FormValidator.js"
 import Section from "../components/Section.js"
-import { handleImageClick, closePopup } from "./utils.js";
+import PopupWithImage from "../components/PopupWithImage.js"
 
 const items = [
   {
@@ -24,14 +24,15 @@ const items = [
   },
 ];
 
+const popupWithImage = new PopupWithImage();
+
 const section = new Section({
   items,
   renderer: (item) => {
-    const card = new Card(item, "#product-template")
+    const card = new Card(item, "#product-template", (imageUrl, imageName) => {
+      popupWithImage.open(imageUrl, imageName);
+    })
     const productElement = card.generateCard();
-
-    const imageElement = productElement.querySelector(".product__image");
-    imageElement.addEventListener("click", handleImageClick);
     return productElement;
   }
 }, ".products");

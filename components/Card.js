@@ -1,9 +1,10 @@
 export default class Card {
-  constructor(productData, templateSelector) {
+  constructor(productData, templateSelector, handleImageClick) {
     this._name = productData.name;
     this._imageUrl = productData.imageUrl;
     this._price = productData.price;
     this._templateSelector = templateSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -29,8 +30,10 @@ export default class Card {
   _setEventListeners() {
     const buttonElement = this._element.querySelector(".product__button");
     buttonElement.addEventListener("click", () => this._addProductToOrder());
-    // const imageElement = this._element.querySelector(".product__image");
-    // imageElement.addEventListener("click", handleImageClick);
+    const imageElement = this._element.querySelector(".product__image");
+    imageElement.addEventListener("click", () => {
+      this._handleImageClick(this._imageUrl, this._name);
+    });
   }
 
   _addProductToOrder() {
