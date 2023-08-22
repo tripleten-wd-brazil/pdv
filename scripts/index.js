@@ -1,35 +1,9 @@
 import Card from "../components/Card.js"
 import FormValidator from "../components/FormValidator.js"
+import Section from "../components/Section.js"
 import { handleImageClick, closePopup } from "./utils.js";
 
-function createProduct(product) {
-  const card = new Card(product, "#product-template")
-  const productElement = card.generateCard();
-
-  const imageElement = productElement.querySelector(".product__image");
-  imageElement.addEventListener("click", handleImageClick);
-
-  const productList = document.querySelector(".products");
-  productList.append(productElement);
-}
-
-const form = document.querySelector(".form");
-form.addEventListener("submit", function(evt) {
-  evt.preventDefault();
-  const inputName = document.querySelector(".form__name");
-  const inputPrice = document.querySelector(".form__price");
-  const inputImageUrl = document.querySelector(".form__imageUrl");
-
-  const product = {
-    name: inputName.value,
-    price: inputPrice.value,
-    imageUrl: inputImageUrl.value,
-  };
-  createProduct(product);
-  closePopup();
-});
-
-const initialProducts = [
+const items = [
   {
     name: "Coca cola",
     price: 6,
@@ -50,7 +24,36 @@ const initialProducts = [
   },
 ];
 
-initialProducts.forEach(createProduct);
+const section = new Section({
+  items,
+  renderer: (item) => {
+    const card = new Card(item, "#product-template")
+    const productElement = card.generateCard();
+
+    const imageElement = productElement.querySelector(".product__image");
+    imageElement.addEventListener("click", handleImageClick);
+    return productElement;
+  }
+}, ".products");
+
+section.renderItems();
+
+const form = document.querySelector(".form");
+form.addEventListener("submit", function(evt) {
+  evt.preventDefault();
+  const inputName = document.querySelector(".form__name");
+  const inputPrice = document.querySelector(".form__price");
+  const inputImageUrl = document.querySelector(".form__imageUrl");
+
+  const product = {
+    name: inputName.value,
+    price: inputPrice.value,
+    imageUrl: inputImageUrl.value,
+  };
+  section.addItem(product);
+  closePopup();
+});
+
 
 
 const config = {
