@@ -108,17 +108,17 @@
         <form class="form" novalidate>
           <div class="form__input-container">
             <label for="imageUrl">Imagem do Produto</label>
-            <input type="url" id="imageUrl" class="form__input form__imageUrl" required />
+            <input name="imageUrl" type="url" id="imageUrl" class="form__input form__imageUrl" required />
             <span class="form__error">Campo inválido</span>
           </div>
           <div class="form__input-container">
             <label for="name">Nome do Produto</label>
-            <input class="form__input form__name" id="name" required minlength="2" maxlength="10" />
+            <input name="name" class="form__input form__name" id="name" required minlength="2" maxlength="10" />
             <span class="form__error">Campo inválido</span>
           </div>
           <div class="form__input-container">
             <label for="price">Valor do Produto</label>
-            <input type="number" id="price" class="form__input form__price" required />
+            <input name="price" type="number" id="price" class="form__input form__price" required />
             <span class="form__error">Campo inválido</span>
           </div>
           <button type="submit">Salvar Produto</button>

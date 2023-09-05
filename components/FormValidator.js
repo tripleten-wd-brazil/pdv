@@ -1,7 +1,7 @@
 export default class FormValidator {
-  constructor(config, form) {
+  constructor(config, formSelector) {
     this._config = config;
-    this._form = form;
+    this._form = document.querySelector(formSelector);
   }
 
   enableValidation() {
