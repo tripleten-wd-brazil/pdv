@@ -1,14 +1,29 @@
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+
 const popupProductForm = document.querySelector(".popup_product-form");
-
 const buttonOpenProductForm = document.querySelector("#open-product-form");
-buttonOpenProductForm.addEventListener("click", function () {
-  popupProductForm.classList.add("popup_opened");
+buttonOpenProductForm.addEventListener("click", () => {
+  openPopup(popupProductForm);
 });
 
-const buttonClose = document.querySelector(".button_close");
-buttonClose.addEventListener("click", function () {
-  popupProductForm.classList.remove("popup_opened");
-});
+const buttonCloseProductForm = document.querySelector(
+  ".button_close_product-form",
+);
+buttonCloseProductForm.addEventListener("click", () =>
+  closePopup(popupProductForm),
+);
+
+const popupProductImage = document.querySelector(".popup_product-image");
+const buttonCloseProductImage = document.querySelector(".button_close_image");
+buttonCloseProductImage.addEventListener("click", () =>
+  closePopup(popupProductImage),
+);
 
 function addProduct(productData) {
   const templateProduct = document.querySelector("#template-product");
@@ -21,11 +36,18 @@ function addProduct(productData) {
   priceElement.textContent = productData.price;
 
   const imageElement = productElement.querySelector(".product__image");
+  imageElement.addEventListener("click", () => {
+    const popupImageElement = document.querySelector(".popup__image");
+    popupImageElement.src = productData.image;
+    popupImageElement.alt = productData.name;
+    openPopup(popupProductImage);
+  });
+
   imageElement.src = productData.image;
   imageElement.alt = productData.name;
 
   const productList = document.querySelector(".products");
-  productList.append(productElement);
+  productList.prepend(productElement);
 }
 
 const initialProducts = [
@@ -57,6 +79,20 @@ const initialProducts = [
   },
 ];
 
-for (let i = 0; i < initialProducts.length; i++) {
-  addProduct(initialProducts[i]);
-}
+initialProducts.forEach(addProduct);
+
+const form = document.querySelector(".form");
+form.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const nameInput = document.querySelector(".form__input_name");
+  const priceInput = document.querySelector(".form__input_price");
+  const imageInput = document.querySelector(".form__input_image");
+
+  const productData = {
+    name: nameInput.value,
+    price: priceInput.value,
+    image: imageInput.value,
+  };
+  addProduct(productData);
+  closePopup(popupProductForm);
+});

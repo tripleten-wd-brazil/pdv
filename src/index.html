@@ -15,20 +15,41 @@
           <img class="product__image" src="" alt="" />
           <p class="product__price"></p>
           <p class="product__name"></p>
-          <button>Selecionar</button>
+          <button class="product__button">Selecionar</button>
         </li>
       </template>
     </main>
     <div class="popup popup_product-form">
       <section class="popup__container">
-        <button class="button button_close" type="button">X</button>
+        <button
+          class="button button_close button_close_product-form"
+          type="button"
+        >
+          X
+        </button>
         <h2>Novo Produto</h2>
         <form class="form">
-          <input class="form__input form__input_name" />
-          <input class="form__input form__input_about" />
+          <div>
+            <label>Nome:</label>
+            <input name="name" class="form__input form__input_name" />
+          </div>
+          <div>
+            <label>Preço:</label>
+            <input name="price" class="form__input form__input_price" />
+          </div>
+          <div>
+            <label>Imagem:</label>
+            <input name="image" class="form__input form__input_image" />
+          </div>
           <button type="submit">Salvar</button>
         </form>
       </section>
+    </div>
+    <div class="popup popup_product-image">
+      <button class="button button_close button_close_image" type="button">
+        X
+      </button>
+      <img class="popup__image" src="" alt="" />
     </div>
   </body>
   <script src="./index.js"></script>
