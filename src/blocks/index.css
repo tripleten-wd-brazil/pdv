@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0a2a34 0%, rgba(80, 138, 156, 0.2) 100%);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  background: rgba(172, 172, 172, 0.5);
+  backdrop-filter: blur(2px);
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup_opened {
+  display: flex;
+}
+
+.popup__container {
+  background-color: rgba(245, 245, 245, 1);
+  padding: 32px 24px;
+}
+
+.product {
+  list-style: none;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 16px 24px;
+  width: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

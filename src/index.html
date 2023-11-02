@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PDV</title>
+    <link rel="stylesheet" href="./blocks/index.css" />
   </head>
   <body>
-    Hello World!
+    <main>
+      <button id="open-product-form">Adicionar Item</button>
+      <ul class="products"></ul>
+      <template id="template-product">
+        <li class="product">
+          <img class="product__image" src="" alt="" />
+          <p class="product__price"></p>
+          <p class="product__name"></p>
+          <button>Selecionar</button>
+        </li>
+      </template>
+    </main>
+    <div class="popup popup_product-form">
+      <section class="popup__container">
+        <button class="button button_close" type="button">X</button>
+        <h2>Novo Produto</h2>
+        <form class="form">
+          <input class="form__input form__input_name" />
+          <input class="form__input form__input_about" />
+          <button type="submit">Salvar</button>
+        </form>
+      </section>
+    </div>
   </body>
   <script src="./index.js"></script>
 </html>
