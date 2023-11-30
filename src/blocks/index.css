@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --error-color: rgba(228, 45, 45, 1);
+}
+
 html,
 body {
   height: 100%;
@@ -42,4 +46,18 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.form__error {
+  color: var(--error-color);
+  margin: 0;
+  display: none;
+}
+
+.form__error_visible {
+  display: block;
+}
+
+.form__input_type_error {
+  border: 1px solid var(--error-color);
 }
