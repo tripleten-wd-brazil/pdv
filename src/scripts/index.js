@@ -1,3 +1,5 @@
+import FormValidator from "./FormValidator.js";
+
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
@@ -82,6 +84,21 @@ const initialProducts = [
 initialProducts.forEach(addProduct);
 
 const form = document.querySelector(".form");
+
+const addCardFormValidator = new FormValidator(
+  {
+    inputSelector: ".form__input",
+    submitButtonSelector: ".form__submit",
+    inactiveButtonClass: "form__button_disabled",
+    inputErrorClass: "form__input_type_error",
+    errorClass: "form__error_visible",
+    errorSelector: ".form__error",
+  },
+  form,
+);
+
+addCardFormValidator.enableValidation();
+
 form.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const nameInput = document.querySelector(".form__input_name");
