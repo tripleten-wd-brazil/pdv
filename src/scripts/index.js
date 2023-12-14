@@ -1,4 +1,5 @@
 import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -28,25 +29,16 @@ buttonCloseProductImage.addEventListener("click", () =>
 );
 
 function addProduct(productData) {
-  const templateProduct = document.querySelector("#template-product");
-  const productElement = templateProduct.content.cloneNode(true);
-
-  const nameElement = productElement.querySelector(".product__name");
-  nameElement.textContent = productData.name;
-
-  const priceElement = productElement.querySelector(".product__price");
-  priceElement.textContent = productData.price;
+  const card = new Card(productData, "#template-product");
+  const productElement = card.generate();
 
   const imageElement = productElement.querySelector(".product__image");
   imageElement.addEventListener("click", () => {
     const popupImageElement = document.querySelector(".popup__image");
-    popupImageElement.src = productData.image;
-    popupImageElement.alt = productData.name;
+    popupImageElement.src = productCard.image;
+    popupImageElement.alt = productCard.name;
     openPopup(popupProductImage);
   });
-
-  imageElement.src = productData.image;
-  imageElement.alt = productData.name;
 
   const productList = document.querySelector(".products");
   productList.prepend(productElement);
