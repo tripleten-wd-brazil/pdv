@@ -1,48 +1,29 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
 
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-}
-
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-}
-
-const popupProductForm = document.querySelector(".popup_product-form");
-const buttonOpenProductForm = document.querySelector("#open-product-form");
-buttonOpenProductForm.addEventListener("click", () => {
-  openPopup(popupProductForm);
-});
-
-const buttonCloseProductForm = document.querySelector(
-  ".button_close_product-form",
-);
-buttonCloseProductForm.addEventListener("click", () =>
-  closePopup(popupProductForm),
-);
-
-const popupProductImage = document.querySelector(".popup_product-image");
-const buttonCloseProductImage = document.querySelector(".button_close_image");
-buttonCloseProductImage.addEventListener("click", () =>
-  closePopup(popupProductImage),
-);
-
+const popupWithImage = new PopupWithImage();
 function addProduct(productData) {
   const card = new Card(productData, "#template-product");
   const productElement = card.generate();
 
   const imageElement = productElement.querySelector(".product__image");
   imageElement.addEventListener("click", () => {
-    const popupImageElement = document.querySelector(".popup__image");
-    popupImageElement.src = productCard.image;
-    popupImageElement.alt = productCard.name;
-    openPopup(popupProductImage);
+    popupWithImage.open(productData.image, productData.name);
   });
 
   const productList = document.querySelector(".products");
   productList.prepend(productElement);
 }
+
+const productPopup = new PopupWithForm((productData) => {
+  addProduct(productData);
+}, ".popup_product-form");
+const buttonOpenProductForm = document.querySelector("#open-product-form");
+buttonOpenProductForm.addEventListener("click", () => {
+  productPopup.open();
+});
 
 const initialProducts = [
   {
@@ -76,7 +57,6 @@ const initialProducts = [
 initialProducts.forEach(addProduct);
 
 const form = document.querySelector(".form");
-
 const addCardFormValidator = new FormValidator(
   {
     inputSelector: ".form__input",
@@ -90,18 +70,3 @@ const addCardFormValidator = new FormValidator(
 );
 
 addCardFormValidator.enableValidation();
-
-form.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const nameInput = document.querySelector(".form__input_name");
-  const priceInput = document.querySelector(".form__input_price");
-  const imageInput = document.querySelector(".form__input_image");
-
-  const productData = {
-    name: nameInput.value,
-    price: priceInput.value,
-    image: imageInput.value,
-  };
-  addProduct(productData);
-  closePopup(popupProductForm);
-});
