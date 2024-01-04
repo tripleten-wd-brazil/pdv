@@ -1,9 +1,10 @@
 export default class Card {
-  constructor({ name, price, image }, templateSelector) {
+  constructor({ name, price, image }, templateSelector, handleCardClick) {
     this._name = name;
     this._price = price;
     this._image = image;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getElement() {
@@ -11,22 +12,26 @@ export default class Card {
     return templateProduct.content.cloneNode(true);
   }
 
-  _setEventListeners() {}
+  _setEventListeners() {
+    this._imageElement.addEventListener("click", () =>
+      this._handleCardClick(this._image, this._name),
+    );
+  }
 
   generate() {
-    const productElement = this._getElement();
+    this._productElement = this._getElement();
 
-    const nameElement = productElement.querySelector(".product__name");
+    const nameElement = this._productElement.querySelector(".product__name");
     nameElement.textContent = this._name;
 
-    const priceElement = productElement.querySelector(".product__price");
+    const priceElement = this._productElement.querySelector(".product__price");
     priceElement.textContent = this._price;
 
-    const imageElement = productElement.querySelector(".product__image");
-    imageElement.src = this._image;
-    imageElement.alt = this._name;
+    this._imageElement = this._productElement.querySelector(".product__image");
+    this._imageElement.src = this._image;
+    this._imageElement.alt = this._name;
     this._setEventListeners();
 
-    return productElement;
+    return this._productElement;
   }
 }

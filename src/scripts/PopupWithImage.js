@@ -6,10 +6,10 @@ export default class PopupWithImage extends Popup {
     this.setEventListeners();
   }
 
-  open(src, alt) {
+  open = (src, alt) => {
     const popupImageElement = document.querySelector(".popup__image");
     popupImageElement.src = src;
     popupImageElement.alt = alt;
     super.open();
-  }
+  };
 }
