@@ -1,0 +1,14 @@
+@import url(./reset.css);
+@import url(../blocks/theme.css);
+@import url(../blocks/page.css);
+@import url(../blocks/container.css);
+@import url(../blocks/categories.css);
+@import url(../blocks/seller.css);
+@import url(../blocks/products.css);
+@import url(../blocks/modal.css);
+@import url(../blocks/buttons.css);
+@import url(../blocks/form.css);
+@import url(../blocks/order.css);
+@import url(../blocks/store.css);
+@import url(../blocks/action-buttons.css);
+@import url(../blocks/alert.css);

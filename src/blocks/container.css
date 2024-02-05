@@ -1,0 +1,12 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1240px;
+  display: grid;
+  grid-template-areas:
+    "categories . seller"
+    "products . buttons"
+    "products . order";
+  grid-template-columns: 3fr 1fr 2fr;
+  padding-top: 64px;
+}

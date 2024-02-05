@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form__label {
+  display: block;
+}
+
+.form__input_invalid {
+  border: 1px solid var(--danger);
+}
+
+.form__error {
+  display: none;
+  color: var(--danger);
+}
+
+.form__input_invalid + .form__error {
+  display: block;
+}

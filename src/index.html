@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,98 +10,208 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;900&family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/index.css" />
-    <title>Practicum PDV</title>
+    <link rel="stylesheet" href="./pages/reset.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Tripleten PDV</title>
   </head>
   <body>
-    <main class="container">
-      <nav class="categories">
-        <ul class="categories__list">
-          <li>
-            <button class="categories__item">
+    <div class="page">
+      <main class="container">
+        <nav class="categories">
+          <ul class="categories__list">
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/bebidas.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Bebidas</span>
+              </button>
+            </li>
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/doces.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Doces</span>
+              </button>
+            </li>
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/lanches.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Lanches</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div class="seller">
+          <article class="seller__card">
+            <figure>
               <img
-                class="categories__icon"
-                src="./images/bebidas.svg"
-                alt="Bebidas"
+                src="./images/avatar_mock.png"
+                alt="Seller avatar image"
+                class="seller__avatar"
               />
-              <span class="categories__text">Bebidas</span>
-            </button>
-          </li>
-          <li>
-            <button class="categories__item">
+            </figure>
+            <div class="seller__data">
+              <h2 class="seller__name">Julian Ferrero</h2>
+              <h3 class="seller__job">Marketing</h3>
+            </div>
+            <button class="seller__edit">
               <img
-                class="categories__icon"
-                src="./images/doces.svg"
-                alt="Bebidas"
+                src="images/edit.svg"
+                alt="Edit seller data"
+                class="seller__edit-icon"
               />
-              <span class="categories__text">Doces</span>
+              <span class="seller__edit-label">Editar</span>
             </button>
-          </li>
-          <li>
-            <button class="categories__item">
-              <img
-                class="categories__icon"
-                src="./images/lanches.svg"
-                alt="Bebidas"
-              />
-              <span class="categories__text">Lanches</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <section class="">
+          </article>
+        </div>
         <ul class="products">
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
-            </p>
-            <button class="button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
-            </p>
-            <button class="button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
-            </p>
-            <button class="button">Selecionar</button>
-          </li>
-          <li class="product">
-            <img
-              class="product__image"
-              src="images/coca-cola.png"
-              alt="Coca cola"
-            />
-            <p class="product__text">
-              <span class="product__price">R$ 6,00</span>
-              <span class="product__name">Coca cola</span>
-            </p>
-            <button class="button">Selecionar</button>
-          </li>
+          <template id="product-card">
+            <li class="product">
+              <p class="product__category"></p>
+              <img class="product__image" />
+              <p class="product__text">
+                <span class="product__price"></span>
+                <span class="product__name"></span>
+              </p>
+              <button class="button product__button">Selecionar</button>
+            </li>
+          </template>
         </ul>
-        <aside></aside>
-      </section>
-    </main>
+        <div class="action-buttons">
+          <button id="open-product-modal" class="button button_type_success">
+            Adicionar item
+          </button>
+        </div>
+
+        <aside class="order mobile-hidden" id="order">
+          <div class="order__header">
+            <p class="order__title">Resumo da Venda</p>
+            <p class="order__author">José Costa</p>
+          </div>
+          <ul class="order__list">
+            <template id="order__entry">
+              <li class="order__item item">
+                <div>
+                  <span class="item__product"></span>
+                  <span class="item__price"></span>
+                </div>
+                <div>
+                  <button class="order__item-button">
+                    <img src="./images/minus_button.svg" alt="remover item" />
+                  </button>
+                  <span class="item__quantity">1</span>
+                  <button class="order__item-button">
+                    <img src="./images/plus_button.svg" alt="adicionar item" />
+                  </button>
+                </div>
+                <span class="item__total"></span>
+              </li>
+            </template>
+          </ul>
+          <div class="order__total-container">
+            <div>
+              <span class="order__total-text-bold">Sub total</span>
+              <span class="order__total-text">Descontos</span>
+              <span class="order__total-text-bold">Total</span>
+            </div>
+            <div>
+              <span class="order__total order__total-text-bold">R$ 0,00</span>
+              <span class="order__total-text">R$ 0,00</span>
+              <span class="order__subtotal order__total-text-bold"
+                >R$ 0,00</span
+              >
+            </div>
+          </div>
+          <button
+            class="button button_type_success order__button"
+            id="order__button"
+          >
+            Finalizar
+          </button>
+        </aside>
+      </main>
+    </div>
+    <div class="modal modal_create-product">
+      <article class="modal__container modal__container_product">
+        <header>
+          <h1>Novo Produto</h1>
+          <button id="close-product-modal">X</button>
+        </header>
+        <main>
+          <form name="form-product" class="form" novalidate>
+            <div class="form__control">
+              <label class="form__label" for="image">Imagem do Produto</label>
+              <input type="url" class="form__input" name="image" id="image" />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="name">Nome do Produto</label>
+              <input class="form__input" name="name" id="name" required />
+              <p class="form__error">Campo obrigatório</p>
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="price">Preço do Produto</label>
+              <input
+                class="form__input"
+                type="number"
+                name="price"
+                id="price"
+                required
+              />
+              <p class="form__error">Campo obrigatório</p>
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="category"
+                >Categoria do Produto
+              </label>
+              <select
+                class="form__input"
+                name="category"
+                id="category"
+                required
+              >
+                <option value="Bebidas">Bebidas</option>
+                <option value="Doces">Doces</option>
+                <option value="Lanches">Lanches</option>
+              </select>
+            </div>
+            <button
+              name="button_submit"
+              class="button button_type_success"
+              disabled
+            >
+              Salvar Produto
+            </button>
+          </form>
+        </main>
+      </article>
+    </div>
+
+    <div class="alert_container"></div>
+    <template id="alert-template">
+      <div class="alert show_alert">
+        <img
+          src="./images/check-circle.svg"
+          alt="Check Circle"
+          class="alert__image"
+        />
+        <div>
+          <p class="alert__title"></p>
+          <p class="alert__text">
+            O produto <span class="alert__text-product"></span> foi
+            <span id="alert__text-action"></span> com sucesso!
+          </p>
+        </div>
+      </div>
+    </template>
   </body>
 </html>

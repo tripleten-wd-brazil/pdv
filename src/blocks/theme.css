@@ -1,0 +1,19 @@
+:root {
+  --lightgray: hsl(0, 0%, 67%);
+  --black: hsl(0, 0%, 12%);
+  --white: hsl(0, 0%, 100%);
+  --primary: hsl(194, 75%, 44%);
+  --primary-hover: hsl(194, 75%, 40%);
+  --secondary: hsl(0, 0%, 54%);
+  --secondary-hover: hsl(0, 0%, 50%);
+  --success: hsl(126, 83%, 35%);
+  --success-hover: hsl(126, 83%, 30%);
+  --danger: hsl(0, 100%, 65%);
+  --danger-hover: hsl(0, 100%, 60%);
+  --edit: hsl(54, 77%, 51%);
+  --edit-hover: hsl(54, 77%, 47%);
+  --overlayColor: hsl(0, 0%, 67%);
+  --boxShadow: rgba(0, 0, 0, 0.35);
+  --danger: hsl(0, 77%, 53%);
+  --sellerCard: hsl(194, 38%, 17%);
+}

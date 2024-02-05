@@ -1,0 +1,4 @@
+.action-buttons {
+  margin-bottom: 24px;
+  grid-area: buttons;
+}

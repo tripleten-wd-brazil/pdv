@@ -1,9 +1,15 @@
+.categories {
+  margin-bottom: 56px;
+  grid-area: categories;
+}
+
 .categories__list {
   list-style: none;
   display: flex;
   gap: 70px;
-  padding: 32px;
+  padding-bottom: 32px;
   border-bottom: 1px solid var(--lightgray);
+  overflow-x: auto;
 }
 
 .categories__item {

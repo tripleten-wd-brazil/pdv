@@ -1,8 +1,10 @@
 .products {
-  padding-top: 56px;
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 64px;
+  height: fit-content;
+  grid-area: products;
 }
 
 .product {
@@ -32,4 +34,8 @@
 
 .product__name {
   font-size: 0.875rem;
+}
+
+.product__category {
+  display: none;
 }
