@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./pages/reset.css" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/index.js" defer></script>
     <title>Tripleten PDV</title>
   </head>
   <body>
@@ -143,27 +144,27 @@
           </button>
         </aside>
       </main>
-    </div>
-    <div class="popup popup_edit_profile">
-      <article class="popup__container popup__container_product">
-        <header>
-          <h1>Editar Perfil</h1>
-          <button id="close-product-popup">X</button>
-        </header>
-        <form class="form">
-          <div class="form__control">
-            <label class="form__label" for="name">Nome:</label>
-            <input class="form__input" name="name" id="name" />
-          </div>
-          <div class="form__control">
-            <label class="form__label" for="about">Sobre:</label>
-            <input class="form__input" id="about" />
-          </div>
-          <button name="button_submit" class="button button_type_success">
-            Salvar
-          </button>
-        </form>
-      </article>
+      <div class="popup popup_edit_profile">
+        <article class="popup__container popup__container_product">
+          <header class="popup__header">
+            <h1 class="popup__title">Editar Perfil</h1>
+            <button class="popup__close-button">X</button>
+          </header>
+          <form class="form">
+            <div class="form__control">
+              <label class="form__label" for="name">Nome:</label>
+              <input class="form__input" name="name" id="name" />
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="about">Sobre:</label>
+              <input class="form__input" id="about" />
+            </div>
+            <button name="button_submit" class="button button_type_success">
+              Salvar
+            </button>
+          </form>
+        </article>
+      </div>
     </div>
     <div class="popup popup_create-product">
       <article class="popup__container popup__container_product">

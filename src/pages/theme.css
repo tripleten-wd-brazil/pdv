@@ -12,8 +12,11 @@
   --danger-hover: hsl(0, 100%, 60%);
   --edit: hsl(54, 77%, 51%);
   --edit-hover: hsl(54, 77%, 47%);
-  --overlayColor: hsl(0, 0%, 67%);
+  --overlayColor: hsla(0, 0%, 67%, 0.5);
   --boxShadow: rgba(0, 0, 0, 0.35);
   --danger: hsl(0, 77%, 53%);
   --sellerCard: hsl(194, 38%, 17%);
+  --inputColor: hsl(0, 0%, 28%);
+  --borderColor: hsl(0, 0%, 63%);
+  --inputBgColor: hsla(0, 0%, 63%, 0.3);
 }

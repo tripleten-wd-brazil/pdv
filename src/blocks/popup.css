@@ -16,8 +16,28 @@
   border-radius: 16px;
   box-shadow: 0px 6px 6px var(--boxShadow);
   padding: 32px 24px;
+  min-width: 360px;
 }
 
 .popup_opened {
   display: flex;
+}
+
+.popup__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.popup__close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.popup__title {
+  font-size: 24px;
 }
