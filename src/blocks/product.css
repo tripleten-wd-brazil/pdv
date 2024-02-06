@@ -27,6 +27,12 @@
   font-size: 0.875rem;
 }
 
+.product__image {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+
 .product__category {
   display: none;
 }

@@ -41,3 +41,22 @@
 .popup__title {
   font-size: 24px;
 }
+
+.popup__image {
+  max-width: 75vh;
+  max-height: 75vh;
+}
+
+.popup__image-container {
+  position: relative;
+}
+
+.popup__image-caption {
+  display: block;
+}
+
+.popup__close-button_image {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
