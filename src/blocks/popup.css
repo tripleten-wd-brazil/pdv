@@ -38,6 +38,17 @@
   font-weight: 700;
 }
 
+.popup__close-button_image {
+  /* position: absolute; */
+}
+
 .popup__title {
   font-size: 24px;
 }
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vw;
+}
+
+
