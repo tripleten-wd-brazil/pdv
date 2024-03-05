@@ -1,200 +1,260 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;900&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./pages/reset.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
+    <title>Tripleten PDV</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;900&family=Poppins:wght@400;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./pages/reset.css" />
-  <link rel="stylesheet" href="./pages/index.css" />
-  <script src="./scripts/index.js" defer></script>
-  <title>Tripleten PDV</title>
-</head>
-
-<body>
-  <div class="page">
-    <main class="container">
-      <nav class="categories">
-        <ul class="categories__list">
-          <li>
-            <button class="categories__item">
-              <img class="categories__icon" src="./images/bebidas.svg" alt="Bebidas" />
-              <span class="categories__text">Bebidas</span>
+  <body>
+    <div class="page">
+      <main class="container">
+        <nav class="categories">
+          <ul class="categories__list">
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/bebidas.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Bebidas</span>
+              </button>
+            </li>
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/doces.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Doces</span>
+              </button>
+            </li>
+            <li>
+              <button class="categories__item">
+                <img
+                  class="categories__icon"
+                  src="./images/lanches.svg"
+                  alt="Bebidas"
+                />
+                <span class="categories__text">Lanches</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div class="seller">
+          <article class="seller__card">
+            <figure>
+              <img
+                src="./images/avatar_mock.png"
+                alt="Seller avatar image"
+                class="seller__avatar"
+              />
+            </figure>
+            <div class="seller__data">
+              <h2 class="seller__name">Julian Ferrero</h2>
+              <h3 class="seller__job">Marketing</h3>
+            </div>
+            <button class="seller__edit">
+              <img
+                src="images/edit.svg"
+                alt="Edit seller data"
+                class="seller__edit-icon"
+              />
+              <span class="seller__edit-label">Editar</span>
             </button>
-          </li>
-          <li>
-            <button class="categories__item">
-              <img class="categories__icon" src="./images/doces.svg" alt="Bebidas" />
-              <span class="categories__text">Doces</span>
-            </button>
-          </li>
-          <li>
-            <button class="categories__item">
-              <img class="categories__icon" src="./images/lanches.svg" alt="Bebidas" />
-              <span class="categories__text">Lanches</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <div class="seller">
-        <article class="seller__card">
-          <figure>
-            <img src="./images/avatar_mock.png" alt="Seller avatar image" class="seller__avatar" />
-          </figure>
-          <div class="seller__data">
-            <h2 class="seller__name">Julian Ferrero</h2>
-            <h3 class="seller__job">Marketing</h3>
-          </div>
-          <button class="seller__edit">
-            <img src="images/edit.svg" alt="Edit seller data" class="seller__edit-icon" />
-            <span class="seller__edit-label">Editar</span>
-          </button>
-        </article>
-      </div>
-      <ul class="products">
-        <template id="product-card">
-          <li class="product">
-            <p class="product__category"></p>
-            <img class="product__image" />
-            <p class="product__text">
-              <span class="product__price"></span>
-              <span class="product__name"></span>
-            </p>
-            <button class="button product__button">Selecionar</button>
-          </li>
-        </template>
-      </ul>
-      <div class="cta">
-        <button class="button button_type_primary">
-          Editar itens
-        </button>
-        <button id="open-product-popup" class="button button_type_success">
-          Adicionar item
-        </button>
-      </div>
-
-      <aside class="order mobile-hidden" id="order">
-        <div class="order__header">
-          <p class="order__title">Resumo da Venda</p>
-          <p class="order__author">José Costa</p>
+          </article>
         </div>
-        <ul class="order__list">
-          <template id="order__entry">
-            <li class="order__item item">
-              <div>
-                <span class="item__product"></span>
-                <span class="item__price"></span>
-              </div>
-              <div>
-                <button class="order__item-button">
-                  <img src="./images/minus_button.svg" alt="remover item" />
-                </button>
-                <span class="item__quantity">1</span>
-                <button class="order__item-button">
-                  <img src="./images/plus_button.svg" alt="adicionar item" />
-                </button>
-              </div>
-              <span class="item__total"></span>
+        <ul class="products">
+          <template id="product-card">
+            <li class="product">
+              <p class="product__category"></p>
+              <img class="product__image" />
+              <p class="product__text">
+                <span class="product__price"></span>
+                <span class="product__name"></span>
+              </p>
+              <button class="button product__button">Selecionar</button>
             </li>
           </template>
         </ul>
-        <div class="order__total-container">
-          <div>
-            <span class="order__total-text-bold">Sub total</span>
-            <span class="order__total-text">Descontos</span>
-            <span class="order__total-text-bold">Total</span>
-          </div>
-          <div>
-            <span class="order__total order__total-text-bold">R$ 0,00</span>
-            <span class="order__total-text">R$ 0,00</span>
-            <span class="order__subtotal order__total-text-bold">R$ 0,00</span>
-          </div>
+        <div class="cta">
+          <button class="button button_type_primary">Editar itens</button>
+          <button id="open-product-popup" class="button button_type_success">
+            Adicionar item
+          </button>
         </div>
-        <button class="button button_type_success order__button" id="order__button">
-          Finalizar
-        </button>
-      </aside>
-    </main>
-    <div class="popup popup_edit_profile">
+
+        <aside class="order mobile-hidden" id="order">
+          <div class="order__header">
+            <p class="order__title">Resumo da Venda</p>
+            <p class="order__author">José Costa</p>
+          </div>
+          <ul class="order__list">
+            <template id="order__entry">
+              <li class="order__item item">
+                <div>
+                  <span class="item__product"></span>
+                  <span class="item__price"></span>
+                </div>
+                <div>
+                  <button class="order__item-button">
+                    <img src="./images/minus_button.svg" alt="remover item" />
+                  </button>
+                  <span class="item__quantity">1</span>
+                  <button class="order__item-button">
+                    <img src="./images/plus_button.svg" alt="adicionar item" />
+                  </button>
+                </div>
+                <span class="item__total"></span>
+              </li>
+            </template>
+          </ul>
+          <div class="order__total-container">
+            <div>
+              <span class="order__total-text-bold">Sub total</span>
+              <span class="order__total-text">Descontos</span>
+              <span class="order__total-text-bold">Total</span>
+            </div>
+            <div>
+              <span class="order__total order__total-text-bold">R$ 0,00</span>
+              <span class="order__total-text">R$ 0,00</span>
+              <span class="order__subtotal order__total-text-bold"
+                >R$ 0,00</span
+              >
+            </div>
+          </div>
+          <button
+            class="button button_type_success order__button"
+            id="order__button"
+          >
+            Finalizar
+          </button>
+        </aside>
+      </main>
+      <div class="popup popup_edit_profile">
+        <article class="popup__container popup__container_product">
+          <header class="popup__header">
+            <h1 class="popup__title">Editar Perfil</h1>
+            <button class="popup__close-button">X</button>
+          </header>
+          <form class="form form_edit_seller" novalidate>
+            <div class="form__control">
+              <label class="form__label" for="name">Nome:</label>
+              <input
+                class="form__input form__input_name"
+                name="name"
+                id="name"
+                value="Julian Ferrero"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <p class="form__error"></p>
+              <p></p>
+            </div>
+            <div class="form__control">
+              <label class="form__label" for="job">Posição:</label>
+              <input
+                class="form__input form__input_job"
+                id="job"
+                value="Marketing"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+            </div>
+            <p class="form__error"></p>
+            <p>
+              <button name="button_submit" class="button button_type_success">
+                Salvar
+              </button>
+            </p>
+          </form>
+        </article>
+      </div>
+    </div>
+    <div class="popup popup_add_product">
       <article class="popup__container popup__container_product">
         <header class="popup__header">
-          <h1 class="popup__title">Editar Perfil</h1>
+          <h1 class="popup__title">Novo Produto</h1>
           <button class="popup__close-button">X</button>
         </header>
-        <form class="form">
+        <form name="form-product" class="form form_add_product">
           <div class="form__control">
-            <label class="form__label" for="name">Nome:</label>
-            <input class="form__input form__input_name" name="name" id="name" value="Julian Ferrero" />
+            <label class="form__label" for="image">Imagem do Produto</label>
+            <input
+              class="form__input form__input_image"
+              name="image"
+              id="image"
+            />
           </div>
           <div class="form__control">
-            <label class="form__label" for="job">Posição:</label>
-            <input class="form__input form__input_job" id="job" value="Marketing" />
+            <label class="form__label" for="name">Nome do Produto</label>
+            <input class="form__input form__input_name" name="name" id="name" />
           </div>
-          <button name="button_submit" class="button button_type_success">
-            Salvar
+          <div class="form__control">
+            <label class="form__label" for="price">Preço do Produto</label>
+            <input
+              class="form__input form__input_price"
+              name="price"
+              id="price"
+            />
+          </div>
+          <div class="form__control">
+            <label class="form__label" for="category"
+              >Categoria do Produto
+            </label>
+            <select class="form__input" name="category" id="category">
+              <option value="Bebidas">Bebidas</option>
+              <option value="Doces">Doces</option>
+              <option value="Lanches">Lanches</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            name="button_submit"
+            class="button button_type_success"
+          >
+            Salvar Produto
           </button>
         </form>
       </article>
     </div>
-  </div>
-  <div class="popup popup_add_product">
-    <article class="popup__container popup__container_product">
-      <header class="popup__header">
-        <h1 class="popup__title">Novo Produto</h1>
-        <button class="popup__close-button">X</button>
-      </header>
-      <form name="form-product" class="form">
-        <div class="form__control">
-          <label class="form__label" for="image">Imagem do Produto</label>
-          <input class="form__input form__input_image" name="image" id="image" />
-        </div>
-        <div class="form__control">
-          <label class="form__label" for="name">Nome do Produto</label>
-          <input class="form__input form__input_name" name="name" id="name" />
-        </div>
-        <div class="form__control">
-          <label class="form__label" for="price">Preço do Produto</label>
-          <input class="form__input form__input_price" name="price" id="price" />
-        </div>
-        <div class="form__control">
-          <label class="form__label" for="category">Categoria do Produto
-          </label>
-          <select class="form__input" name="category" id="category">
-            <option value="Bebidas">Bebidas</option>
-            <option value="Doces">Doces</option>
-            <option value="Lanches">Lanches</option>
-          </select>
-        </div>
-        <button type="submit" name="button_submit" class="button button_type_success">
-          Salvar Produto
-        </button>
-      </form>
-    </article>
-  </div>
-  <div class="popup popup_zoom_image">
-    <button class="popup__close-button popup__close-button_image">X</button>
-    <img src="" alt="" class="popup__image">
-    <p class="popup__product-name"></p>
-  </div>
-
-  <div class="alert_container"></div>
-  <template id="alert-template">
-    <div class="alert show_alert">
-      <img src="./images/check-circle.svg" alt="Check Circle" class="alert__image" />
-      <div>
-        <p class="alert__title"></p>
-        <p class="alert__text">
-          O produto <span class="alert__text-product"></span> foi
-          <span id="alert__text-action"></span> com sucesso!
-        </p>
-      </div>
+    <div class="popup popup_zoom_image">
+      <button class="popup__close-button popup__close-button_image">X</button>
+      <img src="" alt="" class="popup__image" />
+      <p class="popup__product-name"></p>
     </div>
-  </template>
-</body>
 
+    <div class="alert_container"></div>
+    <template id="alert-template">
+      <div class="alert show_alert">
+        <img
+          src="./images/check-circle.svg"
+          alt="Check Circle"
+          class="alert__image"
+        />
+        <div>
+          <p class="alert__title"></p>
+          <p class="alert__text">
+            O produto <span class="alert__text-product"></span> foi
+            <span id="alert__text-action"></span> com sucesso!
+          </p>
+        </div>
+      </div>
+    </template>
+  </body>
 </html>
