@@ -27,18 +27,8 @@ function validateSubmitButton(formElement, config) {
   }
 }
 
-function enableValidation(config) {
+export function enableValidation(config) {
   const formElement = document.querySelector(config.formSelector);
   const inputs = formElement.querySelectorAll(config.inputSelector);
   inputs.forEach((input) => setEventListeners(input, formElement, config));
 }
-
-enableValidation({
-  formSelector: ".form_edit_seller",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-  errorSelector: ".form__error",
-});

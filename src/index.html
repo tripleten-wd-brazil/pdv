@@ -12,8 +12,7 @@
     />
     <link rel="stylesheet" href="./pages/reset.css" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <script src="./scripts/index.js" defer></script>
-    <script src="./scripts/validate.js" defer></script>
+    <script type="module" src="./scripts/index.js" defer></script>
     <title>Tripleten PDV</title>
   </head>
 
@@ -195,18 +194,27 @@
           <h1 class="popup__title">Novo Produto</h1>
           <button class="popup__close-button">X</button>
         </header>
-        <form name="form-product" class="form form_add_product">
+        <form name="form-product" class="form form_add_product" novalidate>
           <div class="form__control">
             <label class="form__label" for="image">Imagem do Produto</label>
             <input
               class="form__input form__input_image"
               name="image"
               id="image"
+              type="url"
             />
+            <p class="form__error"></p>
           </div>
           <div class="form__control">
             <label class="form__label" for="name">Nome do Produto</label>
-            <input class="form__input form__input_name" name="name" id="name" />
+            <input
+              class="form__input form__input_name"
+              name="name"
+              id="name"
+              required
+              minlength="2"
+            />
+            <p class="form__error"></p>
           </div>
           <div class="form__control">
             <label class="form__label" for="price">Preço do Produto</label>
@@ -214,7 +222,12 @@
               class="form__input form__input_price"
               name="price"
               id="price"
+              required
+              minlength="2"
+              type="number"
+              step="0.01"
             />
+            <p class="form__error"></p>
           </div>
           <div class="form__control">
             <label class="form__label" for="category"
@@ -229,7 +242,7 @@
           <button
             type="submit"
             name="button_submit"
-            class="button button_type_success"
+            class="button button_type_success button_submit"
             disabled
           >
             Salvar Produto

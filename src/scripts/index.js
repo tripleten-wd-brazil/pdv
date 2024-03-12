@@ -1,3 +1,5 @@
+import { enableValidation } from "./validate.js";
+
 function setClosePopup(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
   closeButton.addEventListener("click", function () {
@@ -127,4 +129,24 @@ formAddProduct.addEventListener("submit", function (evt) {
   formAddProduct.reset();
 
   addProductPopup.classList.remove("popup_opened");
+});
+
+enableValidation({
+  formSelector: ".form_edit_seller",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".button_submit",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+  errorSelector: ".form__error",
+});
+
+enableValidation({
+  formSelector: ".form_add_product",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".button_submit",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+  errorSelector: ".form__error",
 });
