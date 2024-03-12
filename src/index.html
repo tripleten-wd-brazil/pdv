@@ -163,7 +163,6 @@
                 maxlength="40"
               />
               <p class="form__error"></p>
-              <p></p>
             </div>
             <div class="form__control">
               <label class="form__label" for="job">Posição:</label>
@@ -175,10 +174,14 @@
                 minlength="2"
                 maxlength="40"
               />
+              <p class="form__error"></p>
             </div>
             <p class="form__error"></p>
             <p>
-              <button name="button_submit" class="button button_type_success">
+              <button
+                name="button_submit"
+                class="button button_type_success button_submit"
+              >
                 Salvar
               </button>
             </p>
@@ -227,6 +230,7 @@
             type="submit"
             name="button_submit"
             class="button button_type_success"
+            disabled
           >
             Salvar Produto
           </button>
