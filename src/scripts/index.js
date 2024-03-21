@@ -150,3 +150,11 @@ enableValidation({
   errorClass: "popup__error_visible",
   errorSelector: ".form__error",
 });
+
+function handleEscKey() {
+  console.log("teste");
+}
+
+document.addEventListener("keydown", handleEscKey);
+
+// document.removeEventListener("keydown", handleEscKey);
