@@ -1,4 +1,5 @@
 import { enableValidation } from "./validate.js";
+import { Card } from "./Card.js";
 
 function setClosePopup(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
@@ -69,16 +70,9 @@ const imagePopup = document.querySelector(".popup_zoom_image");
 setClosePopup(imagePopup);
 
 function renderProduct(productData) {
-  // recuperar o template (query selector);
-  const productTemplate = document.querySelector("#product-card");
-
-  // criar um elemento a partir do template;
-  const productElement = productTemplate.content.cloneNode(true);
-
-  // adicionar informação no elemento (popular);
+  const card = new Card(productData, "#product-card");
+  const productElement = card.generateCard();
   const productImage = productElement.querySelector(".product__image");
-  productImage.src = productData.image;
-  productImage.alt = productData.name;
   productImage.addEventListener("click", function () {
     // pegar os elementos do popup pra setar valores
     const imageElement = imagePopup.querySelector(".popup__image");
@@ -90,12 +84,6 @@ function renderProduct(productData) {
     // abrir o popup de imagem
     imagePopup.classList.add("popup_opened");
   });
-
-  const productName = productElement.querySelector(".product__name");
-  productName.textContent = productData.name;
-
-  const productPrice = productElement.querySelector(".product__price");
-  productPrice.textContent = productData.price;
   // recuperar a lista de produtos;
   const productList = document.querySelector(".products");
   // adicionar o elemento populado na lista;
