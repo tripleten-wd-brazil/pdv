@@ -1,5 +1,5 @@
-import { enableValidation } from "./validate.js";
 import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 function setClosePopup(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
@@ -119,30 +119,28 @@ formAddProduct.addEventListener("submit", function (evt) {
   addProductPopup.classList.remove("popup_opened");
 });
 
-enableValidation({
-  formSelector: ".form_edit_seller",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-  errorSelector: ".form__error",
-});
+new FormValidator(
+  {
+    formSelector: ".form_add_product",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".button_submit",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+    errorSelector: ".form__error",
+  },
+  formAddProduct,
+).enableValidation();
 
-enableValidation({
-  formSelector: ".form_add_product",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-  errorSelector: ".form__error",
-});
-
-function handleEscKey() {
-  console.log("teste");
-}
-
-document.addEventListener("keydown", handleEscKey);
-
-// document.removeEventListener("keydown", handleEscKey);
+new FormValidator(
+  {
+    formSelector: ".form_edit_seller",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".button_submit",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+    errorSelector: ".form__error",
+  },
+  formEditProfile,
+).enableValidation();
