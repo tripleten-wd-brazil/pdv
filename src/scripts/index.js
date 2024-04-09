@@ -1,5 +1,6 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { Section } from "./Section.js";
 
 function setClosePopup(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
@@ -69,28 +70,30 @@ const initialProducts = [
 const imagePopup = document.querySelector(".popup_zoom_image");
 setClosePopup(imagePopup);
 
-function renderProduct(productData) {
-  const card = new Card(productData, "#product-card");
-  const productElement = card.generateCard();
-  const productImage = productElement.querySelector(".product__image");
-  productImage.addEventListener("click", function () {
-    // pegar os elementos do popup pra setar valores
-    const imageElement = imagePopup.querySelector(".popup__image");
-    const nameElement = imagePopup.querySelector(".popup__product-name");
-    // setar a imagem e o nome da imagem no popup
-    imageElement.src = productData.image;
-    imageElement.alt = productData.name;
-    nameElement.textContent = productData.name;
-    // abrir o popup de imagem
-    imagePopup.classList.add("popup_opened");
-  });
-  // recuperar a lista de produtos;
-  const productList = document.querySelector(".products");
-  // adicionar o elemento populado na lista;
-  productList.append(productElement);
-}
-
-initialProducts.forEach(renderProduct);
+const section = new Section(
+  {
+    items: initialProducts,
+    renderer: (productData) => {
+      const card = new Card(productData, "#product-card");
+      const productElement = card.generateCard();
+      const productImage = productElement.querySelector(".product__image");
+      productImage.addEventListener("click", function () {
+        // pegar os elementos do popup pra setar valores
+        const imageElement = imagePopup.querySelector(".popup__image");
+        const nameElement = imagePopup.querySelector(".popup__product-name");
+        // setar a imagem e o nome da imagem no popup
+        imageElement.src = productData.image;
+        imageElement.alt = productData.name;
+        nameElement.textContent = productData.name;
+        // abrir o popup de imagem
+        imagePopup.classList.add("popup_opened");
+      });
+      return productElement;
+    },
+  },
+  ".products",
+);
+section.renderItems();
 
 const addProductButton = document.querySelector("#open-product-popup");
 const addProductPopup = document.querySelector(".popup_add_product");
