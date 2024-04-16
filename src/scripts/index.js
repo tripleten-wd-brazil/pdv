@@ -1,20 +1,14 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { PopupWithImage } from "./PopupWithImage.js";
 import { Section } from "./Section.js";
 
-function setClosePopup(popup) {
-  const closeButton = popup.querySelector(".popup__close-button");
-  closeButton.addEventListener("click", function () {
-    popup.classList.remove("popup_opened");
-  });
-}
 const editProfileButton = document.querySelector(".seller__edit");
 const editProfilePopup = document.querySelector(".popup_edit_profile");
 
 editProfileButton.addEventListener("click", function () {
   editProfilePopup.classList.add("popup_opened");
 });
-setClosePopup(editProfilePopup);
 
 const formEditProfile = editProfilePopup.querySelector(".form");
 formEditProfile.addEventListener("submit", function (evt) {
@@ -67,9 +61,8 @@ const initialProducts = [
   },
 ];
 
-const imagePopup = document.querySelector(".popup_zoom_image");
-setClosePopup(imagePopup);
-
+const popupImage = new PopupWithImage(".popup_zoom_image");
+popupImage.setEventListeners();
 const section = new Section(
   {
     items: initialProducts,
@@ -78,15 +71,7 @@ const section = new Section(
       const productElement = card.generateCard();
       const productImage = productElement.querySelector(".product__image");
       productImage.addEventListener("click", function () {
-        // pegar os elementos do popup pra setar valores
-        const imageElement = imagePopup.querySelector(".popup__image");
-        const nameElement = imagePopup.querySelector(".popup__product-name");
-        // setar a imagem e o nome da imagem no popup
-        imageElement.src = productData.image;
-        imageElement.alt = productData.name;
-        nameElement.textContent = productData.name;
-        // abrir o popup de imagem
-        imagePopup.classList.add("popup_opened");
+        popupImage.open(productData.image, productData.name);
       });
       return productElement;
     },
@@ -101,7 +86,6 @@ const addProductPopup = document.querySelector(".popup_add_product");
 addProductButton.addEventListener("click", function () {
   addProductPopup.classList.add("popup_opened");
 });
-setClosePopup(addProductPopup);
 
 const formAddProduct = addProductPopup.querySelector(".form");
 formAddProduct.addEventListener("submit", function (evt) {
