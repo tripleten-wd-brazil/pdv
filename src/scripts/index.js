@@ -1,26 +1,8 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { PopupWithForm } from "./PopupWithForm.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { Section } from "./Section.js";
-
-const editProfileButton = document.querySelector(".seller__edit");
-const editProfilePopup = document.querySelector(".popup_edit_profile");
-
-editProfileButton.addEventListener("click", function () {
-  editProfilePopup.classList.add("popup_opened");
-});
-
-const formEditProfile = editProfilePopup.querySelector(".form");
-formEditProfile.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-  const name = formEditProfile.querySelector(".form__input_name").value;
-  const about = formEditProfile.querySelector(".form__input_job").value;
-  const nameProfile = document.querySelector(".seller__name");
-  const jobProfile = document.querySelector(".seller__job");
-  nameProfile.textContent = name;
-  jobProfile.textContent = about;
-  editProfilePopup.classList.remove("popup_opened");
-});
 
 const initialProducts = [
   {
@@ -63,6 +45,7 @@ const initialProducts = [
 
 const popupImage = new PopupWithImage(".popup_zoom_image");
 popupImage.setEventListeners();
+
 const section = new Section(
   {
     items: initialProducts,
@@ -81,31 +64,28 @@ const section = new Section(
 section.renderItems();
 
 const addProductButton = document.querySelector("#open-product-popup");
-const addProductPopup = document.querySelector(".popup_add_product");
+const productPopup = new PopupWithForm((productData) => {
+  section.addItem(productData);
+}, ".popup_add_product");
 
 addProductButton.addEventListener("click", function () {
-  addProductPopup.classList.add("popup_opened");
+  productPopup.open();
 });
 
+const editProfileButton = document.querySelector(".seller__edit");
+const profilePopup = new PopupWithForm(({ name, job }) => {
+  const nameProfile = document.querySelector(".seller__name");
+  const jobProfile = document.querySelector(".seller__job");
+  nameProfile.textContent = name;
+  jobProfile.textContent = job;
+}, ".popup_edit_profile");
+
+editProfileButton.addEventListener("click", function () {
+  profilePopup.open();
+});
+
+const addProductPopup = document.querySelector(".popup_add_product");
 const formAddProduct = addProductPopup.querySelector(".form");
-formAddProduct.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-  const name = formAddProduct.querySelector(".form__input_name").value;
-  const image = formAddProduct.querySelector(".form__input_image").value;
-  const price = formAddProduct.querySelector(".form__input_price").value;
-
-  // shorthand property: ao invés de name: name apenas name
-  const product = {
-    name,
-    image,
-    price,
-  };
-  renderProduct(product);
-  formAddProduct.reset();
-
-  addProductPopup.classList.remove("popup_opened");
-});
-
 new FormValidator(
   {
     formSelector: ".form_add_product",
@@ -119,6 +99,8 @@ new FormValidator(
   formAddProduct,
 ).enableValidation();
 
+const editProfilePopup = document.querySelector(".popup_edit_profile");
+const formEditProfile = editProfilePopup.querySelector(".form");
 new FormValidator(
   {
     formSelector: ".form_edit_seller",
