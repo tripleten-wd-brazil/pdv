@@ -3,6 +3,7 @@ import { FormValidator } from "./FormValidator.js";
 import { PopupWithForm } from "./PopupWithForm.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { Section } from "./Section.js";
+import { UserInfo } from "./UserInfo.js";
 
 const initialProducts = [
   {
@@ -72,12 +73,14 @@ addProductButton.addEventListener("click", function () {
   productPopup.open();
 });
 
+const userInfo = new UserInfo({
+  nameSelector: ".seller__name",
+  jobSelector: ".seller__job",
+});
+
 const editProfileButton = document.querySelector(".seller__edit");
-const profilePopup = new PopupWithForm(({ name, job }) => {
-  const nameProfile = document.querySelector(".seller__name");
-  const jobProfile = document.querySelector(".seller__job");
-  nameProfile.textContent = name;
-  jobProfile.textContent = job;
+const profilePopup = new PopupWithForm((userData) => {
+  userInfo.setUserInfo(userData);
 }, ".popup_edit_profile");
 
 editProfileButton.addEventListener("click", function () {
