@@ -13,73 +13,37 @@ const api = new Api({
   }
 });
 
-const initialProducts = [
-  {
-    name: "Caldo de Cana",
-    category: "Bebidas",
-    price: "R$ 4,00",
-    image: "https://i.ibb.co/Bs081pB/caldo-de-cana.jpg",
-  },
-  {
-    name: "Caipirinha",
-    category: "Bebidas",
-    price: "R$ 10,00",
-    image: "https://i.ibb.co/DbhdZ2k/caipirinha.jpg",
-  },
-  {
-    name: "Cachorro-quente",
-    category: "Lanches",
-    price: "R$ 12,00",
-    image: "https://i.ibb.co/nbBwQxX/cachorro-quente.webp",
-  },
-  {
-    name: "Joelho",
-    category: "Lanches",
-    price: "R$ 6,00",
-    image: "https://i.ibb.co/qpKG0Dv/joelho.webp",
-  },
-  {
-    name: "Brigadeiro",
-    category: "Doces",
-    price: "R$ 3,50",
-    image: "https://i.ibb.co/HKvKfjy/brigadeiro.jpg",
-  },
-  {
-    name: "Paçoca",
-    category: "Doces",
-    price: "R$ 1,00",
-    image: "https://i.ibb.co/M5p9MLj/pacoca.jpg",
-  },
-];
-
 const popupImage = new PopupWithImage(".popup_zoom_image");
 popupImage.setEventListeners();
 
-const section = new Section(
-  {
-    items: initialProducts,
-    renderer: (productData) => {
-      const card = new Card(productData, "#product-card");
-      const productElement = card.generateCard();
-      const productImage = productElement.querySelector(".product__image");
-      productImage.addEventListener("click", function() {
-        popupImage.open(productData.image, productData.name);
-      });
-      return productElement;
+api.getInitialCards().then((products) => {
+  const section = new Section(
+    {
+      items: products,
+      renderer: (productData) => {
+        const card = new Card(productData, "#product-card");
+        const productElement = card.generateCard();
+        const productImage = productElement.querySelector(".product__image");
+        productImage.addEventListener("click", function() {
+          popupImage.open(productData.image, productData.name);
+        });
+        return productElement;
+      },
     },
-  },
-  ".products",
-);
-section.renderItems();
+    ".products",
+  );
+  section.renderItems();
 
-const addProductButton = document.querySelector("#open-product-popup");
-const productPopup = new PopupWithForm((productData) => {
-  section.addItem(productData);
-}, ".popup_add_product");
+  const addProductButton = document.querySelector("#open-product-popup");
+  const productPopup = new PopupWithForm((productData) => {
+    section.addItem(productData);
+  }, ".popup_add_product");
 
-addProductButton.addEventListener("click", function() {
-  productPopup.open();
+  addProductButton.addEventListener("click", function() {
+    productPopup.open();
+  });
 });
+
 
 const userInfo = new UserInfo({
   nameSelector: ".seller__name",

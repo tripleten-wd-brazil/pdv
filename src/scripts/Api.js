@@ -5,7 +5,7 @@ export class Api {
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/products`, {
       headers: this._headers
     })
       .then(res => {
