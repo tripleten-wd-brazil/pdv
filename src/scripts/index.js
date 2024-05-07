@@ -4,6 +4,14 @@ import { PopupWithForm } from "./PopupWithForm.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { Section } from "./Section.js";
 import { UserInfo } from "./UserInfo.js";
+import { Api } from "./Api.js";
+
+const api = new Api({
+  baseUrl: "https://tripleten-pdv-api.onrender.com/api",
+  headers: {
+    authorization: "ced3d496-8ee7-4e1d-b29a-1b54726ffbd5"
+  }
+});
 
 const initialProducts = [
   {
@@ -54,7 +62,7 @@ const section = new Section(
       const card = new Card(productData, "#product-card");
       const productElement = card.generateCard();
       const productImage = productElement.querySelector(".product__image");
-      productImage.addEventListener("click", function () {
+      productImage.addEventListener("click", function() {
         popupImage.open(productData.image, productData.name);
       });
       return productElement;
@@ -69,7 +77,7 @@ const productPopup = new PopupWithForm((productData) => {
   section.addItem(productData);
 }, ".popup_add_product");
 
-addProductButton.addEventListener("click", function () {
+addProductButton.addEventListener("click", function() {
   productPopup.open();
 });
 
@@ -78,12 +86,16 @@ const userInfo = new UserInfo({
   jobSelector: ".seller__job",
 });
 
+api.getUserInfo().then((user) => {
+  userInfo.setUserInfo(user);
+});
+
 const editProfileButton = document.querySelector(".seller__edit");
 const profilePopup = new PopupWithForm((userData) => {
   userInfo.setUserInfo(userData);
 }, ".popup_edit_profile");
 
-editProfileButton.addEventListener("click", function () {
+editProfileButton.addEventListener("click", function() {
   profilePopup.open();
 });
 
