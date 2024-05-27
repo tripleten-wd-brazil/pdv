@@ -9,7 +9,8 @@ import { Api } from "./Api.js";
 const api = new Api({
   baseUrl: "https://tripleten-pdv-api.onrender.com/api",
   headers: {
-    authorization: "ced3d496-8ee7-4e1d-b29a-1b54726ffbd5"
+    authorization: "*****",
+    "Content-Type": "application/json",
   }
 });
 
@@ -56,7 +57,9 @@ api.getUserInfo().then((user) => {
 
 const editProfileButton = document.querySelector(".seller__edit");
 const profilePopup = new PopupWithForm((userData) => {
-  userInfo.setUserInfo(userData);
+  api.patchUserInfo(userData).then((apiUser) => {
+    userInfo.setUserInfo(apiUser);
+  });
 }, ".popup_edit_profile");
 
 editProfileButton.addEventListener("click", function() {
