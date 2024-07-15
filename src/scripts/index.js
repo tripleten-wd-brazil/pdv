@@ -8,6 +8,20 @@ const buttonAddProduct = document.querySelector(".cta_product_add");
 const editProfilePopup = document.querySelector(".popup_edit_profile");
 const addProductPopup = document.querySelector(".popup_add_product");
 
+editProfilePopup.addEventListener("click", (evt) => {
+  if (evt.target === evt.currentTarget) {
+    closeAllPopups();
+  }
+});
+
+function closeOnEsc(evt) {
+  if (evt.key === "Escape") {
+    closeAllPopups();
+  }
+}
+
+document.addEventListener("keydown", closeOnEsc);
+
 const openEditProfilePopup = function () {
   editProfilePopup.classList.add("popup_opened");
 };
@@ -22,6 +36,7 @@ buttonAddProduct.addEventListener("click", openAddProductPopup);
 function closeAllPopups() {
   editProfilePopup.classList.remove("popup_opened");
   addProductPopup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeOnEsc);
 }
 
 const editProfileForm = editProfilePopup.querySelector(".form");
@@ -123,3 +138,14 @@ addProductForm.addEventListener("submit", function (evt) {
   criaProduto(produto);
   closeAllPopups();
 });
+
+const productFormConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+enableValidation(productFormConfig);

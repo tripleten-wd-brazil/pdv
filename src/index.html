@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./pages/reset.css" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/index.js" defer></script>
     <title>Tripleten PDV</title>
   </head>
@@ -151,16 +152,31 @@
             <h1 class="popup__title">Editar Perfil</h1>
             <button class="popup__close-button">X</button>
           </header>
-          <form class="form">
+          <form class="form" novalidate>
             <div class="form__control">
               <label class="form__label" for="name">Nome:</label>
-              <input class="form__input" name="name" id="name" />
+              <input
+                class="form__input"
+                name="name"
+                id="name"
+                required
+                value="Julian Ferrero"
+              />
             </div>
             <div class="form__control">
               <label class="form__label" for="about">Sobre:</label>
-              <input class="form__input" id="about" name="about" />
+              <input
+                class="form__input"
+                id="about"
+                name="about"
+                required
+                value="Marketing"
+              />
             </div>
-            <button name="button_submit" class="button button_type_success">
+            <button
+              name="button_submit"
+              class="button button_type_success button_submit"
+            >
               Salvar
             </button>
           </form>
