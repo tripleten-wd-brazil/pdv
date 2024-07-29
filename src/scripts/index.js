@@ -1,12 +1,12 @@
-// Feature: abrir popup
-// Quando? Ao clicar no button "Editar"
-// event: click;
+import { enableValidation } from "./validate.js";
+import Card from "./Card.js";
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
 const buttonAddProduct = document.querySelector(".cta_product_add");
 
 const editProfilePopup = document.querySelector(".popup_edit_profile");
 const addProductPopup = document.querySelector(".popup_add_product");
+const popupImage = document.querySelector(".popup_image");
 
 editProfilePopup.addEventListener("click", (evt) => {
   if (evt.target === evt.currentTarget) {
@@ -36,6 +36,7 @@ buttonAddProduct.addEventListener("click", openAddProductPopup);
 function closeAllPopups() {
   editProfilePopup.classList.remove("popup_opened");
   addProductPopup.classList.remove("popup_opened");
+  popupImage.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeOnEsc);
 }
 
@@ -52,9 +53,10 @@ editProfileForm.addEventListener("submit", function (evt) {
   closeAllPopups();
 });
 
-// TODO: Depois da explicação de vetores;
-const buttonClose = document.querySelector(".popup__close-button");
-buttonClose.addEventListener("click", closeAllPopups);
+const buttonsClose = document.querySelectorAll(".popup__close-button");
+buttonsClose.forEach((buttonClose) => {
+  buttonClose.addEventListener("click", closeAllPopups);
+});
 
 const initialProducts = [
   {
@@ -96,28 +98,21 @@ const initialProducts = [
 ];
 
 function criaProduto(produto) {
-  // Pegar o template
-  const productTemplate = document.querySelector("#product-template");
-
-  // Fazer uma cópia
-  const productCopy = productTemplate.content.cloneNode(true);
-
-  // Pegar os sub elementos da cópia
-  const productImage = productCopy.querySelector(".product__image");
-  const productName = productCopy.querySelector(".product__name");
-  const productPrice = productCopy.querySelector(".product__price");
-
-  // Popular a cópia com os dados do produto;
-  productImage.src = produto.image;
-  productImage.alt = produto.name;
-  productName.textContent = produto.name;
-  productPrice.textContent = produto.price;
+  const product = new Card(produto, "#product-template");
+  const productCopy = product.generate();
 
   // Pegar a lista de produtos;
   const productList = document.querySelector(".products");
   // Adicionar a cópia na lista de produtos;
   productList.prepend(productCopy);
 }
+
+const handleClickImage = (product) => {
+  const image = popupImage.querySelector(".popup__image");
+  image.src = product.image;
+  image.alt = product.name;
+  popupImage.classList.add("popup_opened");
+};
 
 for (let i = 0; i < initialProducts.length; i++) {
   criaProduto(initialProducts[i]);
