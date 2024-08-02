@@ -1,4 +1,4 @@
-function enableValidation() {
+export function enableValidation() {
   const popupEditProfile = document.querySelector(".popup_edit_profile");
   // pegar os inputs;
   const inputs = popupEditProfile.querySelectorAll(".form__input");
@@ -18,3 +18,17 @@ function enableValidation() {
   });
 }
 
+class FormValidator {
+  constructor(config, formElement) {
+    this._config = config;
+    this._formElement = formElement;
+  }
+
+  _toggleButtonState() {}
+
+  _setEventListeners() {}
+
+  enableValidation() {
+    this._setEventListeners();
+  }
+}

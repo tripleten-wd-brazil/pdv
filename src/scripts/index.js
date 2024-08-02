@@ -1,4 +1,5 @@
 import { enableValidation } from "./validate.js";
+import Section from "./Section.js";
 import Card from "./Card.js";
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
@@ -97,26 +98,30 @@ const initialProducts = [
   },
 ];
 
-function criaProduto(produto) {
-  const product = new Card(produto, "#product-template");
-  const productCopy = product.generate();
+const section = new Section(
+  {
+    items: initialProducts,
+    renderer: (produto) => {
+      const product = new Card(produto, "#product-template");
+      const productCopy = product.generate();
 
-  // Pegar a lista de produtos;
-  const productList = document.querySelector(".products");
-  // Adicionar a cópia na lista de produtos;
-  productList.prepend(productCopy);
-}
+      section.addItem(productCopy);
+    },
+  },
+  ".products",
+);
 
-const handleClickImage = (product) => {
-  const image = popupImage.querySelector(".popup__image");
-  image.src = product.image;
-  image.alt = product.name;
-  popupImage.classList.add("popup_opened");
-};
+section.renderItems();
 
-for (let i = 0; i < initialProducts.length; i++) {
-  criaProduto(initialProducts[i]);
-}
+// function criaProduto(produto) {
+//   const product = new Card(produto, "#product-template");
+//   const productCopy = product.generate();
+//
+//   // Pegar a lista de produtos;
+//   const productList = document.querySelector(".products");
+//   // Adicionar a cópia na lista de produtos;
+//   productList.prepend(productCopy);
+// }
 
 const addProductForm = addProductPopup.querySelector(".form");
 addProductForm.addEventListener("submit", function (evt) {
