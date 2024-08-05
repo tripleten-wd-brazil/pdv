@@ -1,11 +1,10 @@
-import { openImagePopup } from "./utils.js";
-
 export default class Card {
-  constructor(cardData, templateSelector) {
+  constructor(cardData, templateSelector, handleCardClick) {
     this._name = cardData.name;
     this._price = cardData.price;
     this._image = cardData.image;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -23,7 +22,7 @@ export default class Card {
   _remove() {}
 
   _handleImageClick() {
-    openImagePopup({ name: this._name, image: this._image });
+    this._handleCardClick({ name: this._name, image: this._image });
   }
 
   generate() {
@@ -44,4 +43,3 @@ export default class Card {
     return this._element;
   }
 }
-

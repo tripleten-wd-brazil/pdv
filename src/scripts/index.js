@@ -1,32 +1,18 @@
 import { enableValidation } from "./validate.js";
 import Section from "./Section.js";
 import Card from "./Card.js";
+import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
 const buttonAddProduct = document.querySelector(".cta_product_add");
 
-const editProfilePopup = document.querySelector(".popup_edit_profile");
 const addProductPopup = document.querySelector(".popup_add_product");
 const popupImage = document.querySelector(".popup_image");
 
-editProfilePopup.addEventListener("click", (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closeAllPopups();
-  }
-});
-
-function closeOnEsc(evt) {
-  if (evt.key === "Escape") {
-    closeAllPopups();
-  }
-}
-
-document.addEventListener("keydown", closeOnEsc);
-
-const openEditProfilePopup = function () {
-  editProfilePopup.classList.add("popup_opened");
-};
-buttonSellerEdit.addEventListener("click", openEditProfilePopup);
+const editProfilePopup = new Popup(".popup_edit_profile");
+editProfilePopup.setEventListeners();
+buttonSellerEdit.addEventListener("click", editProfilePopup.open);
 
 // Padrão alternativo
 const openAddProductPopup = function () {
@@ -41,23 +27,18 @@ function closeAllPopups() {
   document.removeEventListener("keydown", closeOnEsc);
 }
 
-const editProfileForm = editProfilePopup.querySelector(".form");
-editProfileForm.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-  const sellerName = document.querySelector(".seller__name");
-  const sellerAbout = document.querySelector(".seller__job");
-  const sellerNameInput = document.querySelector("#name");
-  const sellerAboutInput = document.querySelector("#about");
-
-  sellerName.textContent = sellerNameInput.value;
-  sellerAbout.textContent = sellerAboutInput.value;
-  closeAllPopups();
-});
-
-const buttonsClose = document.querySelectorAll(".popup__close-button");
-buttonsClose.forEach((buttonClose) => {
-  buttonClose.addEventListener("click", closeAllPopups);
-});
+// const editProfileForm = editProfilePopup.querySelector(".form");
+// editProfileForm.addEventListener("submit", function (evt) {
+//   evt.preventDefault();
+//   const sellerName = document.querySelector(".seller__name");
+//   const sellerAbout = document.querySelector(".seller__job");
+//   const sellerNameInput = document.querySelector("#name");
+//   const sellerAboutInput = document.querySelector("#about");
+//
+//   sellerName.textContent = sellerNameInput.value;
+//   sellerAbout.textContent = sellerAboutInput.value;
+//   closeAllPopups();
+// });
 
 const initialProducts = [
   {
@@ -98,17 +79,20 @@ const initialProducts = [
   },
 ];
 
+const popupWithImage = new PopupWithImage();
 const section = new Section(
   {
     items: initialProducts,
     renderer: (produto) => {
-      const product = new Card(produto, "#product-template");
+      const product = new Card(produto, "#product-template", (item) => {
+        popupWithImage.open(item);
+      });
       const productCopy = product.generate();
 
       section.addItem(productCopy);
     },
   },
-  ".products",
+  ".products"
 );
 
 section.renderItems();
