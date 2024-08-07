@@ -1,8 +1,8 @@
 import { enableValidation } from "./validate.js";
 import Section from "./Section.js";
 import Card from "./Card.js";
-import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
 const buttonAddProduct = document.querySelector(".cta_product_add");
@@ -10,7 +10,13 @@ const buttonAddProduct = document.querySelector(".cta_product_add");
 const addProductPopup = document.querySelector(".popup_add_product");
 const popupImage = document.querySelector(".popup_image");
 
-const editProfilePopup = new Popup(".popup_edit_profile");
+const editProfilePopup = new PopupWithForm((values) => {
+  const sellerName = document.querySelector(".seller__name");
+  const sellerAbout = document.querySelector(".seller__job");
+
+  sellerName.textContent = values.name;
+  sellerAbout.textContent = values.about;
+}, ".popup_edit_profile");
 editProfilePopup.setEventListeners();
 buttonSellerEdit.addEventListener("click", editProfilePopup.open);
 
@@ -26,19 +32,6 @@ function closeAllPopups() {
   popupImage.classList.remove("popup_opened");
   document.removeEventListener("keydown", closeOnEsc);
 }
-
-// const editProfileForm = editProfilePopup.querySelector(".form");
-// editProfileForm.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
-//   const sellerName = document.querySelector(".seller__name");
-//   const sellerAbout = document.querySelector(".seller__job");
-//   const sellerNameInput = document.querySelector("#name");
-//   const sellerAboutInput = document.querySelector("#about");
-//
-//   sellerName.textContent = sellerNameInput.value;
-//   sellerAbout.textContent = sellerAboutInput.value;
-//   closeAllPopups();
-// });
 
 const initialProducts = [
   {
@@ -92,20 +85,10 @@ const section = new Section(
       section.addItem(productCopy);
     },
   },
-  ".products"
+  ".products",
 );
 
 section.renderItems();
-
-// function criaProduto(produto) {
-//   const product = new Card(produto, "#product-template");
-//   const productCopy = product.generate();
-//
-//   // Pegar a lista de produtos;
-//   const productList = document.querySelector(".products");
-//   // Adicionar a cópia na lista de produtos;
-//   productList.prepend(productCopy);
-// }
 
 const addProductForm = addProductPopup.querySelector(".form");
 addProductForm.addEventListener("submit", function (evt) {
