@@ -1,4 +1,4 @@
-# Practicum PDV
+# Tripleten PDV
 
 This application was created for studying purposes.
 
@@ -16,7 +16,7 @@ Thanks Thiago Castro for your hard working making this designs available for fre
 - Register and save the order;
 - Filter products depending upon the category;
 
-This project is shared between different cohorts from Practicum's course.
+This project is shared between different cohorts from Tripleten's course.
 So, each of them will have a dedicated and separate branch.
 
 ## Phases of Development
