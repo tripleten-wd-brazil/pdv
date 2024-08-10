@@ -4,15 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;900&family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./pages/reset.css" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <script type="module" src="./scripts/index.js" defer></script>
     <title>Tripleten PDV</title>
   </head>
 
@@ -25,7 +16,7 @@
               <button class="categories__item">
                 <img
                   class="categories__icon"
-                  src="./images/bebidas.svg"
+                  src="<%=require('./images/bebidas.svg')%>"
                   alt="Bebidas"
                 />
                 <span class="categories__text">Bebidas</span>
@@ -35,7 +26,7 @@
               <button class="categories__item">
                 <img
                   class="categories__icon"
-                  src="./images/doces.svg"
+                  src="<%=require('./images/doces.svg')%>"
                   alt="Bebidas"
                 />
                 <span class="categories__text">Doces</span>
@@ -45,7 +36,7 @@
               <button class="categories__item">
                 <img
                   class="categories__icon"
-                  src="./images/lanches.svg"
+                  src="<%=require('./images/lanches.svg')%>"
                   alt="Bebidas"
                 />
                 <span class="categories__text">Lanches</span>
@@ -57,7 +48,7 @@
           <article class="seller__card">
             <figure>
               <img
-                src="./images/avatar_mock.png"
+                src="<%=require('./images/avatar_mock.png')%>"
                 alt="Seller avatar image"
                 class="seller__avatar"
               />
@@ -68,7 +59,7 @@
             </div>
             <button class="seller__edit">
               <img
-                src="images/edit.svg"
+                src="<%=require('./images/edit.svg')%>"
                 alt="Edit seller data"
                 class="seller__edit-icon"
               />
@@ -112,11 +103,17 @@
                 </div>
                 <div>
                   <button class="order__item-button">
-                    <img src="./images/minus_button.svg" alt="remover item" />
+                    <img
+                      src="<%=require('./images/minus_button.svg')%>"
+                      alt="remover item"
+                    />
                   </button>
                   <span class="item__quantity">1</span>
                   <button class="order__item-button">
-                    <img src="./images/plus_button.svg" alt="adicionar item" />
+                    <img
+                      src="<%=require('./images/plus_button.svg')%>"
+                      alt="adicionar item"
+                    />
                   </button>
                 </div>
                 <span class="item__total"></span>
@@ -217,7 +214,7 @@
     <template id="alert-template">
       <div class="alert show_alert">
         <img
-          src="./images/check-circle.svg"
+          src="<%=require('./images/check-circle.svg')%>"
           alt="Check Circle"
           class="alert__image"
         />

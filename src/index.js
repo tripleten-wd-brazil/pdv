@@ -1,8 +1,10 @@
-import { enableValidation } from "./validate.js";
-import Section from "./Section.js";
-import Card from "./Card.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
+import "./pages/index.css";
+
+import { enableValidation } from "./scripts/validate.js";
+import Section from "./scripts/Section.js";
+import Card from "./scripts/Card.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
+import PopupWithForm from "./scripts/PopupWithForm.js";
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
 const buttonAddProduct = document.querySelector(".cta_product_add");
