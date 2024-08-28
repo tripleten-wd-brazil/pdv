@@ -5,6 +5,17 @@ import Section from "./scripts/Section.js";
 import Card from "./scripts/Card.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
+import UserInfo from "./scripts/UserInfo.js";
+import api from "./scripts/Api.js";
+
+const userInfo = new UserInfo({
+  nameSelector: ".seller__name",
+  jobSelector: ".seller__job",
+});
+
+api.getUserInfo().then((data) => {
+  userInfo.setUserInfo(data);
+});
 
 const buttonSellerEdit = document.querySelector(".seller__edit");
 const buttonAddProduct = document.querySelector(".cta_product_add");
@@ -13,11 +24,9 @@ const addProductPopup = document.querySelector(".popup_add_product");
 const popupImage = document.querySelector(".popup_image");
 
 const editProfilePopup = new PopupWithForm((values) => {
-  const sellerName = document.querySelector(".seller__name");
-  const sellerAbout = document.querySelector(".seller__job");
-
-  sellerName.textContent = values.name;
-  sellerAbout.textContent = values.about;
+  api.editProfile(values).then(() => {
+    userInfo.setUserInfo(values);
+  });
 }, ".popup_edit_profile");
 editProfilePopup.setEventListeners();
 buttonSellerEdit.addEventListener("click", editProfilePopup.open);
@@ -35,62 +44,26 @@ function closeAllPopups() {
   document.removeEventListener("keydown", closeOnEsc);
 }
 
-const initialProducts = [
-  {
-    name: "Caldo de Cana",
-    category: "Bebidas",
-    price: "R$ 4,00",
-    image: "https://i.ibb.co/Bs081pB/caldo-de-cana.jpg",
-  },
-  {
-    name: "Caipirinha",
-    category: "Bebidas",
-    price: "R$ 10,00",
-    image: "https://i.ibb.co/DbhdZ2k/caipirinha.jpg",
-  },
-  {
-    name: "Cachorro-quente",
-    category: "Lanches",
-    price: "R$ 12,00",
-    image: "https://i.ibb.co/nbBwQxX/cachorro-quente.webp",
-  },
-  {
-    name: "Joelho",
-    category: "Lanches",
-    price: "R$ 6,00",
-    image: "https://i.ibb.co/qpKG0Dv/joelho.webp",
-  },
-  {
-    name: "Brigadeiro",
-    category: "Doces",
-    price: "R$ 3,50",
-    image: "https://i.ibb.co/HKvKfjy/brigadeiro.jpg",
-  },
-  {
-    name: "Paçoca",
-    category: "Doces",
-    price: "R$ 1,00",
-    image: "https://i.ibb.co/M5p9MLj/pacoca.jpg",
-  },
-];
+api.getProducts().then((initialProducts) => {
+  const section = new Section(
+    {
+      items: initialProducts,
+      renderer: (produto) => {
+        const product = new Card(produto, "#product-template", (item) => {
+          popupWithImage.open(item);
+        });
+        const productCopy = product.generate();
+
+        section.addItem(productCopy);
+      },
+    },
+    ".products",
+  );
+
+  section.renderItems();
+});
 
 const popupWithImage = new PopupWithImage();
-const section = new Section(
-  {
-    items: initialProducts,
-    renderer: (produto) => {
-      const product = new Card(produto, "#product-template", (item) => {
-        popupWithImage.open(item);
-      });
-      const productCopy = product.generate();
-
-      section.addItem(productCopy);
-    },
-  },
-  ".products",
-);
-
-section.renderItems();
 
 const addProductForm = addProductPopup.querySelector(".form");
 addProductForm.addEventListener("submit", function (evt) {

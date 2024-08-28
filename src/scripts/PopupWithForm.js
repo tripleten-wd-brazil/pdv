@@ -6,12 +6,9 @@ export default class PopupWithForm extends Popup {
     this._submitCallback = submitCallback;
   }
 
-  _getInputValues() {
-    // logica
-    // return {
-      // name: "Name",
-      // about: "About"
-      // }
+  _getInputValues(evt) {
+    const formData = new FormData(evt);
+    return Object.fromEntries(formData);
   }
 
   setEventListeners() {
@@ -19,7 +16,7 @@ export default class PopupWithForm extends Popup {
     const form = this._popup.querySelector(".form");
     form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      const values = this._getInputValues();
+      const values = this._getInputValues(evt.target);
       this._submitCallback(values);
       this.close();
     });
