@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--inputColor);
+}
+
+.form__control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form__input {
+  min-height: 30px;
+  border: 1px solid var(--borderColor);
+  background-color: var(--inputBgColor);
+  border-radius: 8px;
+  padding: 8px;
+}

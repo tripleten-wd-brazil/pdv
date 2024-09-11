@@ -1,0 +1,6 @@
+.cta {
+  margin-bottom: 24px;
+  grid-area: buttons;
+  display: flex;
+  justify-content: space-between;
+}

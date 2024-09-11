@@ -1,0 +1,15 @@
+@import url(./reset.css);
+@import url(./theme.css);
+@import url(../blocks/page.css);
+@import url(../blocks/container.css);
+@import url(../blocks/categories.css);
+@import url(../blocks/seller.css);
+@import url(../blocks/popup.css);
+@import url(../blocks/products.css);
+@import url(../blocks/product.css);
+@import url(../blocks/button.css);
+@import url(../blocks/form.css);
+@import url(../blocks/order.css);
+@import url(../blocks/store.css);
+@import url(../blocks/cta.css);
+@import url(../blocks/alert.css);

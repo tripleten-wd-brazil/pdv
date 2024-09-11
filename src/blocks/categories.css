@@ -1,0 +1,28 @@
+.categories {
+  margin-bottom: 56px;
+  grid-area: categories;
+}
+
+.categories__list {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--lightgray);
+  overflow-x: auto;
+}
+
+.categories__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: transparent;
+  border: none;
+  color: var(--lightgray);
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.categories__item:hover {
+  color: var(--white);
+}

@@ -1,0 +1,11 @@
+.products {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 64px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  grid-area: products;
+}
