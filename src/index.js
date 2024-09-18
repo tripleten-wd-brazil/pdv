@@ -25,21 +25,23 @@ function handleProfileFormSubmit(evt) {
   // Explicaremos em mais detalhes posteriormente.
 
   // Vamos encontrar os campos de formulário do DOM
-  let nameInput = document.querySelector(".popup__name");
-  let jobInput = document.querySelector(".popup__job");
+  let nameInput = document.querySelector(".form__input_name");
+  let jobInput = document.querySelector(".form__input_about");
 
   // Pegue os valores de cada campo do valor da propriedade correspondente
   let name = nameInput.value;
   let job = jobInput.value;
 
   // Selecione os elementos aos quais os valores dos campos serão inseridos
-  let nameElement = document.querySelector(".profile__title");
-  let jobElement = document.querySelector(".profile__job");
+  let nameElement = document.querySelector(".seller__name");
+  let jobElement = document.querySelector(".seller__job");
   // Insira novos valores usando a
   // propriedade textContent
 
   nameElement.textContent = name;
   jobElement.textContent = job;
+
+  popupProfile.classList.remove("popup_opened");
 }
 
 // Conecte o handler ao formulário:
