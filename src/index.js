@@ -1,22 +1,29 @@
 // Elemento HTML popup para remover o display none;
-let popupProfile = document.querySelector(".popup");
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
 
-let buttonOpenProfile = document.querySelector(".seller__edit");
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+const popupProfile = document.querySelector(".popup_edit_profile");
+
+const buttonOpenProfile = document.querySelector(".seller__edit");
 buttonOpenProfile.addEventListener("click", function () {
-  popupProfile.classList.add("popup_opened");
+  openPopup(popupProfile);
 });
 
 // Fechar popup
 // aplicar display none;
 
-let buttonCloseProfile = document.querySelector(".popup__close-button");
+const buttonCloseProfile = document.querySelector(".popup__close-button");
 buttonCloseProfile.addEventListener("click", function () {
-  popupProfile.classList.remove("popup_opened");
+  closePopup(popupProfile);
 });
 
 // Salvar info do perfil
 //
-let formElement = document.querySelector(".form");
+const formElement = document.querySelector(".form");
 function handleProfileFormSubmit(evt) {
   // Esta linha impede o navegador
   // de enviar o formulário da forma padrão.
@@ -25,16 +32,16 @@ function handleProfileFormSubmit(evt) {
   // Explicaremos em mais detalhes posteriormente.
 
   // Vamos encontrar os campos de formulário do DOM
-  let nameInput = document.querySelector(".form__input_name");
-  let jobInput = document.querySelector(".form__input_about");
+  const nameInput = document.querySelector(".form__input_name");
+  const jobInput = document.querySelector(".form__input_about");
 
   // Pegue os valores de cada campo do valor da propriedade correspondente
-  let name = nameInput.value;
-  let job = jobInput.value;
+  const name = nameInput.value;
+  const job = jobInput.value;
 
   // Selecione os elementos aos quais os valores dos campos serão inseridos
-  let nameElement = document.querySelector(".seller__name");
-  let jobElement = document.querySelector(".seller__job");
+  const nameElement = document.querySelector(".seller__name");
+  const jobElement = document.querySelector(".seller__job");
   // Insira novos valores usando a
   // propriedade textContent
 
@@ -113,3 +120,29 @@ function createProduct(product) {
 }
 
 initialProducts.forEach(createProduct);
+
+const buttonPopupProduto = document.querySelector(".cta_product_add");
+const popupProduct = document.querySelector(".popup_create-product");
+
+buttonPopupProduto.addEventListener("click", () => {
+  openPopup(popupProduct);
+});
+
+const buttonCloseProduct = document.querySelector("#close-product-popup");
+buttonCloseProduct.addEventListener("click", () => {
+  closePopup(popupProduct);
+});
+
+const formAddCard = popupProduct.querySelector(".form");
+formAddCard.addEventListener("submit", (evt) => {
+  // atrasar o evendo dubmite ou click (atrasa o evento)
+  evt.preventDefault();
+
+  // Pegar os valores do input
+  const inputs = formAddCard.querySelectorAll(".form__input");
+  const product = {};
+  inputs.forEach((input) => {
+    product[input.name] = input.value;
+  });
+  createProduct(product);
+});
