@@ -1,3 +1,5 @@
+import Section from "./components/Section.js";
+
 // Elemento HTML popup para remover o display none;
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -111,15 +113,14 @@ function createProduct(product) {
   cardName.textContent = product.name;
   cardImage.setAttribute("src", product.image);
   cardImage.setAttribute("alt", product.name);
-
-  // Adicionar cardElement no HTML;
-  //
-  // Pegar a lista
-  const productList = document.querySelector(".products");
-  productList.prepend(cardElement);
+  return cardElement;
 }
 
-initialProducts.forEach(createProduct);
+const section = new Section(
+  { items: initialProducts, renderer: createProduct },
+  ".products"
+);
+section.renderItems();
 
 const buttonPopupProduto = document.querySelector(".cta_product_add");
 const popupProduct = document.querySelector(".popup_create-product");
