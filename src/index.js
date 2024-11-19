@@ -147,3 +147,19 @@ formAddCard.addEventListener("submit", (evt) => {
   });
   createProduct(product);
 });
+
+const promise = fetch(
+  "https://around-api.pt-br.tripleten-services.com/v1/users/me",
+  {
+    headers: {
+      authorization: "e88d62c6-b685-4471-a11f-40f4d4f7b16d",
+    },
+  }
+);
+
+promise
+  .then((res) => res.json())
+  .then((user) => {
+    userInfo.setInfo(user);
+  })
+  .catch((error) => {});
